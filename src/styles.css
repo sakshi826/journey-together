@@ -52,7 +52,7 @@
   --radius: 1rem;
 
   /* Warm neutral wellness palette */
-  --background: #FAF8F5;
+  --background: oklch(0.985 0.008 80);
   --foreground: oklch(0.22 0.025 35);
 
   --card: oklch(1 0 0);

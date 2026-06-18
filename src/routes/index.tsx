@@ -3,16 +3,24 @@ import {
   ArrowLeft,
   ArrowRight,
   Heart,
-  HeartHandshake,
-  Star,
+  Sparkles,
   TrendingUp,
-  Compass,
+  Target,
+  Flame,
+  CheckCircle2,
+  Lock,
+  Play,
   BookOpen,
   Lightbulb,
+  HeartHandshake,
   Brain,
-  Clock,
+  Award,
+  Trophy,
+  MessageCircle,
+  Compass,
+  Star,
   ShieldCheck,
-  Play,
+  Clock,
   ChevronRight,
 } from "lucide-react";
 
@@ -23,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Therapist-guided tools and resources to deepen connection, communication, and emotional intimacy together.",
+          "Therapist-guided tools, pathways, and insights to deepen connection, communication, and emotional intimacy together.",
       },
     ],
   }),
@@ -35,13 +43,28 @@ export const Route = createFileRoute("/")({
 function CoupleTherapyPage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Ambient warm background */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-rose-soft blur-3xl opacity-70" />
+        <div className="absolute top-40 -right-32 h-[32rem] w-[32rem] rounded-full bg-sage-soft blur-3xl opacity-60" />
+        <div className="absolute bottom-0 left-1/3 h-[28rem] w-[28rem] rounded-full bg-lavender-soft blur-3xl opacity-50" />
+      </div>
+
       <TopBar />
 
-      <main className="mx-auto w-full max-w-5xl px-5 pb-28 sm:px-8">
-        <PageIntro />
-        <GuidedSeries />
+      <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
+        <Hero />
+        <ContinueJourney />
+        <Roadmap />
+        <NextSteps />
         <RelationshipTools />
-        <Resources />
+        <Insights />
+        <ResourceLibrary />
+        <Milestones />
+        <TherapistCorner />
         <Footer />
       </main>
     </div>
@@ -52,293 +75,796 @@ function CoupleTherapyPage() {
 
 function TopBar() {
   return (
-    <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 pt-8 sm:px-8 sm:pt-10">
-      <button className="group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+    <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 pt-6 sm:px-8 sm:pt-8">
+      <button className="group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         Back
       </button>
-      <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground">
-        <ShieldCheck className="h-3.5 w-3.5 text-sage" />
-        Therapist-approved
+      <div className="flex items-center gap-2">
+        <div className="hidden items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur sm:inline-flex">
+          <ShieldCheck className="h-3.5 w-3.5 text-sage" />
+          Therapist-approved
+        </div>
+        <div className="flex -space-x-2">
+          <Avatar tone="rose" label="A" />
+          <Avatar tone="sage" label="J" />
+        </div>
       </div>
     </header>
   );
 }
 
-/* -------------------------------- PageIntro ------------------------------- */
-
-function PageIntro() {
+function Avatar({ tone, label }: { tone: "rose" | "sage"; label: string }) {
+  const cls =
+    tone === "rose"
+      ? "bg-rose-soft text-rose ring-background"
+      : "bg-sage-soft text-sage ring-background";
   return (
-    <section className="mt-14 sm:mt-20">
-      <div className="flex items-center gap-3">
-        <ConnectedCircles />
-        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-sage">
-          Couple Therapy
-        </span>
+    <div
+      className={`flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold ring-2 ${cls}`}
+    >
+      {label}
+    </div>
+  );
+}
+
+/* ---------------------------------- Hero ---------------------------------- */
+
+function Hero() {
+  return (
+    <section className="mt-8 sm:mt-12">
+      <div className="relative overflow-hidden rounded-3xl border border-border bg-card/60 p-6 shadow-card backdrop-blur-xl sm:p-10">
+        <div
+          aria-hidden
+          className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-sage-soft blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-rose-soft blur-3xl"
+        />
+
+        <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-sage-soft px-3 py-1 text-xs font-medium text-sage">
+              <Sparkles className="h-3.5 w-3.5" />
+              Personalized for Alex & Jordan
+            </div>
+            <h1 className="mt-5 text-4xl leading-[1.05] text-foreground sm:text-5xl lg:text-[3.5rem]">
+              Couple <em className="font-normal italic text-sage">Therapy</em>
+            </h1>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Strengthen communication, deepen emotional intimacy, and build a
+              healthier relationship together — guided by evidence-based
+              therapy.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <button className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-background transition-all hover:opacity-90 hover:shadow-lg">
+                Continue Journey
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </button>
+              <button className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary">
+                Explore Resources
+              </button>
+            </div>
+
+            <div className="mt-7 grid grid-cols-3 gap-3 sm:max-w-md">
+              <Stat icon={<Flame className="h-4 w-4" />} label="Day streak" value="14" tone="rose" />
+              <Stat icon={<CheckCircle2 className="h-4 w-4" />} label="Activities" value="12" tone="sage" />
+              <Stat icon={<TrendingUp className="h-4 w-4" />} label="Growth" value="86" tone="lavender" />
+            </div>
+          </div>
+
+          <div className="relative flex items-center justify-center">
+            <ProgressRing percent={72} />
+          </div>
+        </div>
       </div>
-      <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.05] text-foreground sm:text-5xl lg:text-[3.5rem]">
-        A gentle path toward a{" "}
-        <em className="font-normal italic text-[oklch(0.55_0.08_25)]">
-          closer, more honest
-        </em>{" "}
-        relationship.
-      </h1>
-      <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-        Therapist-guided practices, reflections, and resources for couples who
-        want to communicate better, feel more connected, and grow together.
-      </p>
     </section>
   );
 }
 
-function ConnectedCircles() {
+function Stat({
+  icon,
+  label,
+  value,
+  tone,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  tone: "rose" | "sage" | "lavender";
+}) {
+  const tones: Record<string, string> = {
+    rose: "bg-rose-soft text-rose",
+    sage: "bg-sage-soft text-sage",
+    lavender: "bg-lavender-soft text-lavender",
+  };
   return (
-    <svg width="32" height="18" viewBox="0 0 32 18" aria-hidden>
-      <circle cx="9" cy="9" r="7" fill="none" stroke="var(--sage)" strokeWidth="1.4" />
-      <circle cx="23" cy="9" r="7" fill="none" stroke="oklch(0.7 0.1 20)" strokeWidth="1.4" />
-    </svg>
+    <div className="rounded-2xl border border-border bg-card/80 p-3 backdrop-blur">
+      <div className={`mb-2 inline-flex h-7 w-7 items-center justify-center rounded-lg ${tones[tone]}`}>
+        {icon}
+      </div>
+      <div className="font-display text-xl text-foreground">{value}</div>
+      <div className="text-xs text-muted-foreground">{label}</div>
+    </div>
   );
 }
 
-/* ------------------------------ GuidedSeries ------------------------------ */
+function ProgressRing({ percent }: { percent: number }) {
+  const size = 220;
+  const stroke = 14;
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const offset = c - (percent / 100) * c;
 
-function GuidedSeries() {
   return (
-    <Section
-      eyebrow="Guided series"
-      title="Your current journey"
-      desc="A therapist-designed series you can move through at your own pace, together."
+    <div className="relative">
+      <svg width={size} height={size} className="-rotate-90">
+        <defs>
+          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="oklch(0.7 0.1 20)" />
+            <stop offset="100%" stopColor="oklch(0.62 0.07 155)" />
+          </linearGradient>
+        </defs>
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={r}
+          stroke="oklch(0.92 0.015 70)"
+          strokeWidth={stroke}
+          fill="none"
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={r}
+          stroke="url(#ringGrad)"
+          strokeWidth={stroke}
+          strokeLinecap="round"
+          fill="none"
+          strokeDasharray={c}
+          strokeDashoffset={offset}
+          style={{ transition: "stroke-dashoffset 0.8s ease" }}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="font-display text-5xl text-foreground">{percent}%</div>
+        <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          Pathway complete
+        </div>
+        <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-sage-soft px-2.5 py-1 text-[11px] font-semibold text-sage">
+          <Sparkles className="h-3 w-3" />
+          Phase 3 of 5
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ----------------------------- Continue Journey --------------------------- */
+
+function ContinueJourney() {
+  return (
+    <SectionHeader
+      eyebrow="Pick up where you left off"
+      title="Continue your journey"
+      desc="A short session today keeps the momentum going."
     >
-      <article className="relative overflow-hidden rounded-[20px] border border-border bg-card shadow-soft">
-        <div className="grid gap-0 lg:grid-cols-[1.4fr_1fr]">
-          {/* Left */}
-          <div className="p-7 sm:p-10">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.94_0.03_155)] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-sage">
-              Featured series · Phase 3
-            </span>
-            <h3 className="mt-5 font-display text-3xl leading-tight text-foreground sm:text-[2.25rem]">
-              The Art of Listening &amp; Being Heard
-            </h3>
-            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              Six guided sessions to help you turn everyday conversations into
-              moments of real understanding — drawn from the Gottman Method and
-              Emotionally Focused Therapy.
-            </p>
-
-            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
-                <Clock className="h-4 w-4 text-sage" />
-                ~12 min per session
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <HeartHandshake className="h-4 w-4 text-[oklch(0.7_0.1_20)]" />
-                12 activities
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Brain className="h-4 w-4 text-[oklch(0.65_0.09_295)]" />
-                Evidence-based
-              </span>
-            </div>
-
-            <div className="mt-7">
-              <div className="mb-2 flex items-center justify-between text-xs font-medium text-muted-foreground">
-                <span>Session 8 of 12</span>
-                <span className="text-foreground">In progress</span>
+      <div className="mt-6 grid gap-4 lg:grid-cols-[2fr_1fr]">
+        <div className="group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-sage-soft via-card to-rose-soft p-6 shadow-card transition-all hover:shadow-lg sm:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-card/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-sage backdrop-blur">
+                <Play className="h-3 w-3 fill-sage" /> Session 8
               </div>
-              <div className="h-1.5 overflow-hidden rounded-full bg-[oklch(0.94_0.012_80)]">
-                <div className="h-full w-2/3 rounded-full bg-sage" />
+              <h3 className="mt-4 font-display text-2xl text-foreground sm:text-3xl">
+                The Art of Active Listening
+              </h3>
+              <p className="mt-2 max-w-md text-sm text-muted-foreground">
+                A 12-minute guided practice to help you truly hear each other
+                without defensiveness.
+              </p>
+
+              <div className="mt-6 flex items-center gap-4 text-xs text-muted-foreground">
+                <span className="inline-flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5" /> 12 min
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <HeartHandshake className="h-3.5 w-3.5" /> Together
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Brain className="h-3.5 w-3.5" /> Gottman-based
+                </span>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:opacity-90">
-                <Play className="h-4 w-4 fill-background" />
-                Continue Journey
-              </button>
-              <button className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-[oklch(0.96_0.012_80)]">
-                View all sessions
-              </button>
-            </div>
+            <button className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-foreground text-background shadow-lg transition-transform group-hover:scale-105">
+              <Play className="h-5 w-5 translate-x-0.5 fill-background" />
+            </button>
           </div>
 
-          {/* Right — illustration */}
-          <div className="relative hidden items-center justify-center bg-gradient-to-br from-[oklch(0.96_0.025_25)] via-[oklch(0.97_0.018_80)] to-[oklch(0.95_0.03_155)] p-10 lg:flex">
-            <JourneyIllustration />
+          <div className="mt-6">
+            <div className="mb-2 flex items-center justify-between text-xs font-medium text-muted-foreground">
+              <span>Phase progress</span>
+              <span className="text-foreground">8 of 12 sessions</span>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-card">
+              <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-sage to-rose" />
+            </div>
           </div>
         </div>
-      </article>
-    </Section>
+
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-soft">
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-sky-soft text-sky">
+            <MessageCircle className="h-5 w-5" />
+          </div>
+          <h4 className="mt-4 font-display text-lg text-foreground">
+            Tonight's check-in
+          </h4>
+          <p className="mt-1 text-sm text-muted-foreground">
+            5 thoughtful prompts. Just before bed.
+          </p>
+          <button className="mt-5 inline-flex w-full items-center justify-between rounded-full bg-secondary px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground hover:text-background">
+            Start check-in
+            <ArrowRight className="h-4 w-4" />
+          </button>
+          <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+            <Star className="h-3.5 w-3.5 fill-sand text-sand" />
+            Loved by 94% of couples
+          </div>
+        </div>
+      </div>
+    </SectionHeader>
   );
 }
 
-function JourneyIllustration() {
+/* --------------------------------- Roadmap -------------------------------- */
+
+const phases = [
+  { n: 1, title: "Building Awareness", duration: "1 week", activities: 6, status: "done" },
+  { n: 2, title: "Communication Skills", duration: "2 weeks", activities: 10, status: "done" },
+  { n: 3, title: "Conflict Resolution", duration: "2 weeks", activities: 12, status: "current" },
+  { n: 4, title: "Emotional Connection", duration: "3 weeks", activities: 14, status: "locked" },
+  { n: 5, title: "Long-Term Growth", duration: "Ongoing", activities: 18, status: "locked" },
+] as const;
+
+function Roadmap() {
   return (
-    <svg viewBox="0 0 280 280" className="h-auto w-full max-w-[280px]" aria-hidden>
-      <defs>
-        <linearGradient id="ringA" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="oklch(0.7 0.1 20)" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="oklch(0.7 0.1 20)" stopOpacity="0" />
-        </linearGradient>
-        <linearGradient id="ringB" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="oklch(0.62 0.07 155)" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="oklch(0.62 0.07 155)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <circle cx="110" cy="140" r="78" fill="none" stroke="url(#ringA)" strokeWidth="1.2" />
-      <circle cx="110" cy="140" r="78" fill="oklch(0.7 0.1 20 / 0.07)" />
-      <circle cx="170" cy="140" r="78" fill="none" stroke="url(#ringB)" strokeWidth="1.2" />
-      <circle cx="170" cy="140" r="78" fill="oklch(0.62 0.07 155 / 0.07)" />
-      <path
-        d="M140 158 C 128 146, 118 138, 118 126 C 118 118, 124 112, 132 112 C 137 112, 140 115, 140 118 C 140 115, 143 112, 148 112 C 156 112, 162 118, 162 126 C 162 138, 152 146, 140 158 Z"
-        fill="oklch(0.55 0.08 25)"
-        opacity="0.9"
-      />
-    </svg>
+    <SectionHeader
+      eyebrow="Your guided pathway"
+      title="A relationship journey, in five phases"
+      desc="Each phase builds on the last, designed with licensed therapists."
+    >
+      <div className="mt-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="relative flex min-w-max gap-4">
+          {/* connecting line */}
+          <div
+            aria-hidden
+            className="absolute left-6 right-6 top-10 -z-0 h-px bg-gradient-to-r from-sage via-rose to-border"
+          />
+          {phases.map((p) => (
+            <PhaseCard key={p.n} {...p} />
+          ))}
+        </div>
+      </div>
+    </SectionHeader>
   );
 }
 
-/* ---------------------------- Relationship Tools -------------------------- */
+function PhaseCard({
+  n,
+  title,
+  duration,
+  activities,
+  status,
+}: {
+  n: number;
+  title: string;
+  duration: string;
+  activities: number;
+  status: "done" | "current" | "locked";
+}) {
+  const isCurrent = status === "current";
+  const isDone = status === "done";
+  const isLocked = status === "locked";
+
+  return (
+    <div
+      className={`relative z-10 w-64 shrink-0 rounded-2xl border p-5 transition-all ${
+        isCurrent
+          ? "border-sage/40 bg-card shadow-card ring-1 ring-sage/30"
+          : isDone
+            ? "border-border bg-card shadow-soft"
+            : "border-dashed border-border bg-card/50"
+      }`}
+    >
+      <div className="flex items-center justify-between">
+        <div
+          className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
+            isDone
+              ? "bg-sage text-primary-foreground"
+              : isCurrent
+                ? "bg-rose-soft text-rose ring-4 ring-rose/15"
+                : "bg-muted text-muted-foreground"
+          }`}
+        >
+          {isDone ? <CheckCircle2 className="h-4 w-4" /> : isLocked ? <Lock className="h-3.5 w-3.5" /> : n}
+        </div>
+        <span
+          className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${
+            isCurrent
+              ? "bg-rose-soft text-rose"
+              : isDone
+                ? "bg-sage-soft text-sage"
+                : "bg-muted text-muted-foreground"
+          }`}
+        >
+          {isDone ? "Complete" : isCurrent ? "In progress" : "Locked"}
+        </span>
+      </div>
+
+      <div className="mt-4 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+        Phase {n}
+      </div>
+      <h4 className="mt-1 font-display text-lg text-foreground">{title}</h4>
+
+      <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground">
+        <span className="inline-flex items-center gap-1">
+          <Clock className="h-3 w-3" /> {duration}
+        </span>
+        <span>·</span>
+        <span>{activities} activities</span>
+      </div>
+
+      <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted">
+        <div
+          className={`h-full rounded-full ${
+            isDone ? "w-full bg-sage" : isCurrent ? "w-2/3 bg-gradient-to-r from-sage to-rose" : "w-0"
+          }`}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------- NextSteps ------------------------------- */
+
+const nextSteps = [
+  {
+    icon: <Heart className="h-4 w-4" />,
+    title: "Appreciation Exercise",
+    time: "5 min",
+    priority: "Top pick",
+    tone: "rose",
+    desc: "Share three things you noticed today.",
+  },
+  {
+    icon: <MessageCircle className="h-4 w-4" />,
+    title: "Communication Reflection",
+    time: "8 min",
+    priority: "For your phase",
+    tone: "sage",
+    desc: "Replay this week's hardest conversation with new tools.",
+  },
+  {
+    icon: <Target className="h-4 w-4" />,
+    title: "Shared Goal Review",
+    time: "10 min",
+    priority: "Weekly",
+    tone: "lavender",
+    desc: "Revisit the vision you're building together.",
+  },
+] as const;
+
+function NextSteps() {
+  return (
+    <SectionHeader
+      eyebrow="Recommended for today"
+      title="Your next steps"
+      desc="Personalized by your check-ins and current phase."
+    >
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {nextSteps.map((s) => {
+          const tones: Record<string, string> = {
+            rose: "bg-rose-soft text-rose",
+            sage: "bg-sage-soft text-sage",
+            lavender: "bg-lavender-soft text-lavender",
+          };
+          return (
+            <div
+              key={s.title}
+              className="group flex flex-col rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card"
+            >
+              <div className="flex items-center justify-between">
+                <div className={`inline-flex h-9 w-9 items-center justify-center rounded-xl ${tones[s.tone]}`}>
+                  {s.icon}
+                </div>
+                <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  {s.priority}
+                </span>
+              </div>
+              <h4 className="mt-4 font-display text-lg text-foreground">{s.title}</h4>
+              <p className="mt-1 flex-1 text-sm text-muted-foreground">{s.desc}</p>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" /> {s.time}
+                </span>
+                <button className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors group-hover:text-sage">
+                  Begin <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </SectionHeader>
+  );
+}
+
+/* ----------------------------- Relationship Tools ------------------------- */
 
 const tools = [
   {
     icon: <Heart className="h-5 w-5" />,
-    title: "Relationship Values Check-In",
-    desc: "Reflect together on what matters most in this season of your relationship.",
-    accent: "rose",
+    title: "Relationship Check-In",
+    desc: "Track emotional connection and satisfaction together.",
+    last: "Yesterday",
+    progress: 80,
+    tone: "rose",
   },
   {
     icon: <Star className="h-5 w-5" />,
-    title: "Appreciation Habit",
-    desc: "A simple daily practice for noticing and naming what you love in each other.",
-    accent: "sand",
+    title: "Daily Appreciation Practice",
+    desc: "Build the habit of noticing and naming the good.",
+    last: "2 days ago",
+    progress: 65,
+    tone: "sand",
   },
   {
     icon: <TrendingUp className="h-5 w-5" />,
-    title: "Relationship Connection Tracker",
-    desc: "Gentle weekly check-ins to stay attuned to closeness, warmth, and intimacy.",
-    accent: "sage",
+    title: "Connection Tracker",
+    desc: "Monitor closeness, intimacy, and warmth over time.",
+    last: "Today",
+    progress: 92,
+    tone: "sage",
   },
   {
     icon: <Compass className="h-5 w-5" />,
-    title: "Shared Relationship Vision",
-    desc: "Imagine and shape the future you'd like to build together, one value at a time.",
-    accent: "lavender",
+    title: "Shared Vision Builder",
+    desc: "Align your future goals, values, and dreams.",
+    last: "Last week",
+    progress: 40,
+    tone: "lavender",
   },
 ] as const;
 
-const accentMap: Record<string, string> = {
-  rose: "bg-[oklch(0.96_0.03_20)] text-[oklch(0.55_0.1_20)]",
-  sand: "bg-[oklch(0.96_0.035_75)] text-[oklch(0.5_0.07_60)]",
-  sage: "bg-[oklch(0.95_0.03_155)] text-sage",
-  lavender: "bg-[oklch(0.95_0.025_295)] text-[oklch(0.55_0.09_295)]",
-};
-
 function RelationshipTools() {
+  const tones: Record<string, { wrap: string; bar: string }> = {
+    rose: { wrap: "bg-rose-soft text-rose", bar: "bg-rose" },
+    sage: { wrap: "bg-sage-soft text-sage", bar: "bg-sage" },
+    sand: { wrap: "bg-sand-soft text-sand", bar: "bg-sand" },
+    lavender: { wrap: "bg-lavender-soft text-lavender", bar: "bg-lavender" },
+  };
   return (
-    <Section
-      eyebrow="Relationship tools"
-      title="Therapeutic exercises for couples"
-      desc="Short, intentional practices to use on your own or together."
+    <SectionHeader
+      eyebrow="Relationship growth tools"
+      title="Daily practices, designed together"
+      desc="Small rituals that compound into a stronger partnership."
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        {tools.map((t) => (
-          <a
-            key={t.title}
-            href="#"
-            className="group flex h-full flex-col rounded-[20px] border border-border bg-card p-7 transition-all hover:border-[oklch(0.88_0.015_70)] hover:shadow-soft"
-          >
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {tools.map((t) => {
+          const tone = tones[t.tone];
+          return (
             <div
-              className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${accentMap[t.accent]}`}
+              key={t.title}
+              className="group rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card sm:p-6"
             >
-              {t.icon}
+              <div className="flex items-start justify-between">
+                <div className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${tone.wrap}`}>
+                  {t.icon}
+                </div>
+                <button className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+              <h4 className="mt-5 font-display text-xl text-foreground">{t.title}</h4>
+              <p className="mt-1 text-sm text-muted-foreground">{t.desc}</p>
+
+              <div className="mt-5 flex items-center justify-between text-xs text-muted-foreground">
+                <span>Last used · {t.last}</span>
+                <span className="font-medium text-foreground">{t.progress}%</span>
+              </div>
+              <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted">
+                <div className={`h-full rounded-full ${tone.bar}`} style={{ width: `${t.progress}%` }} />
+              </div>
             </div>
-            <h4 className="mt-6 font-display text-xl text-foreground">
-              {t.title}
-            </h4>
-            <p className="mt-2 flex-1 text-[15px] leading-relaxed text-muted-foreground">
-              {t.desc}
-            </p>
-            <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
-              Begin exercise
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </div>
-          </a>
-        ))}
+          );
+        })}
       </div>
-    </Section>
+    </SectionHeader>
   );
 }
 
-/* -------------------------------- Resources ------------------------------- */
+/* -------------------------------- Insights -------------------------------- */
+
+const insights = [
+  { label: "Connection", value: 86, trend: "+12%", tone: "rose", data: [30, 42, 38, 55, 60, 70, 86] },
+  { label: "Communication", value: 78, trend: "+8%", tone: "sage", data: [40, 45, 50, 48, 60, 70, 78] },
+  { label: "Appreciation", value: 91, trend: "+15%", tone: "sand", data: [50, 55, 65, 70, 75, 82, 91] },
+  { label: "Conflict Recovery", value: 68, trend: "+5%", tone: "lavender", data: [55, 58, 50, 60, 62, 65, 68] },
+] as const;
+
+function Insights() {
+  const tones: Record<string, { wrap: string; stroke: string; fill: string }> = {
+    rose: { wrap: "text-rose", stroke: "oklch(0.7 0.1 20)", fill: "oklch(0.7 0.1 20 / 0.15)" },
+    sage: { wrap: "text-sage", stroke: "oklch(0.62 0.07 155)", fill: "oklch(0.62 0.07 155 / 0.15)" },
+    sand: { wrap: "text-sand", stroke: "oklch(0.78 0.07 75)", fill: "oklch(0.78 0.07 75 / 0.2)" },
+    lavender: { wrap: "text-lavender", stroke: "oklch(0.65 0.09 295)", fill: "oklch(0.65 0.09 295 / 0.15)" },
+  };
+
+  return (
+    <SectionHeader
+      eyebrow="Relationship insights"
+      title="How you're growing this week"
+      desc="Patterns from your check-ins, journals, and shared activities."
+    >
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {insights.map((i) => {
+          const t = tones[i.tone];
+          return (
+            <div key={i.label} className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  {i.label}
+                </div>
+                <span className={`inline-flex items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[11px] font-semibold ${t.wrap}`}>
+                  <TrendingUp className="h-3 w-3" /> {i.trend}
+                </span>
+              </div>
+              <div className="mt-2 flex items-baseline gap-1">
+                <span className="font-display text-4xl text-foreground">{i.value}</span>
+                <span className="text-sm text-muted-foreground">/100</span>
+              </div>
+              <Sparkline data={[...i.data]} stroke={t.stroke} fill={t.fill} />
+            </div>
+          );
+        })}
+      </div>
+    </SectionHeader>
+  );
+}
+
+function Sparkline({ data, stroke, fill }: { data: number[]; stroke: string; fill: string }) {
+  const w = 220;
+  const h = 60;
+  const max = Math.max(...data);
+  const min = Math.min(...data);
+  const range = max - min || 1;
+  const step = w / (data.length - 1);
+  const points = data.map((v, i) => [i * step, h - ((v - min) / range) * (h - 8) - 4] as const);
+  const path = points.map((p, i) => (i === 0 ? `M${p[0]},${p[1]}` : `L${p[0]},${p[1]}`)).join(" ");
+  const area = `${path} L${w},${h} L0,${h} Z`;
+  return (
+    <svg viewBox={`0 0 ${w} ${h}`} className="mt-4 w-full">
+      <path d={area} fill={fill} />
+      <path d={path} fill="none" stroke={stroke} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ----------------------------- Resource Library --------------------------- */
 
 const resources = [
   {
     icon: <BookOpen className="h-5 w-5" />,
     title: "Articles",
-    desc: "In-depth reads from licensed couples therapists.",
     count: "42 articles",
-    accent: "sand",
+    time: "5–8 min read",
+    tone: "sand",
+    trending: true,
   },
   {
     icon: <Lightbulb className="h-5 w-5" />,
-    title: "Tips",
-    desc: "Short, practical ideas to try in your week.",
-    count: "28 tips",
-    accent: "sage",
+    title: "Therapist Tips",
+    count: "28 quick tips",
+    time: "2 min read",
+    tone: "sky",
+    trending: false,
   },
   {
     icon: <HeartHandshake className="h-5 w-5" />,
-    title: "Stories",
-    desc: "Real couples on what helped them grow closer.",
+    title: "Real Couple Stories",
     count: "16 stories",
-    accent: "rose",
+    time: "8–12 min read",
+    tone: "lavender",
+    trending: true,
   },
   {
     icon: <Brain className="h-5 w-5" />,
-    title: "Myths",
-    desc: "Common relationship beliefs, gently re-examined.",
-    count: "12 myths",
-    accent: "lavender",
+    title: "Relationship Myths",
+    count: "12 myths debunked",
+    time: "3 min read",
+    tone: "sage",
+    trending: false,
   },
 ] as const;
 
-function Resources() {
+function ResourceLibrary() {
+  const tones: Record<string, string> = {
+    sand: "from-sand-soft to-card",
+    sky: "from-sky-soft to-card",
+    lavender: "from-lavender-soft to-card",
+    sage: "from-sage-soft to-card",
+  };
+  const iconTones: Record<string, string> = {
+    sand: "bg-card text-sand",
+    sky: "bg-card text-sky",
+    lavender: "bg-card text-lavender",
+    sage: "bg-card text-sage",
+  };
   return (
-    <Section
+    <SectionHeader
       eyebrow="Resource library"
-      title="Read, reflect, and learn"
-      desc="Hand-selected resources to support your journey between sessions."
+      title="Read, listen, and reflect"
+      desc="Hand-picked by therapists and updated every week."
     >
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {resources.map((r) => (
           <a
             key={r.title}
             href="#"
-            className="group flex items-start gap-5 rounded-[20px] border border-border bg-card p-6 transition-all hover:border-[oklch(0.88_0.015_70)] hover:shadow-soft"
+            className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${tones[r.tone]} p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
           >
-            <div
-              className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${accentMap[r.accent]}`}
-            >
-              {r.icon}
+            <div className="flex items-start justify-between">
+              <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl shadow-soft ${iconTones[r.tone]}`}>
+                {r.icon}
+              </div>
+              {r.trending && (
+                <span className="inline-flex items-center gap-1 rounded-full bg-foreground/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-background">
+                  <Flame className="h-3 w-3" /> Trending
+                </span>
+              )}
             </div>
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center justify-between gap-3">
-                <h4 className="font-display text-xl text-foreground">
-                  {r.title}
-                </h4>
-                <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-              </div>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                {r.desc}
-              </p>
-              <div className="mt-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                {r.count}
-              </div>
+            <h4 className="mt-5 font-display text-2xl text-foreground">{r.title}</h4>
+            <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground">
+              <span>{r.count}</span>
+              <span>·</span>
+              <span>{r.time}</span>
+            </div>
+            <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+              Explore <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </div>
           </a>
         ))}
       </div>
-    </Section>
+    </SectionHeader>
+  );
+}
+
+/* ------------------------------- Milestones ------------------------------- */
+
+const milestones = [
+  { icon: <CheckCircle2 className="h-5 w-5" />, label: "First Week Completed", earned: true, tone: "sage" },
+  { icon: <MessageCircle className="h-5 w-5" />, label: "Communication Champion", earned: true, tone: "sky" },
+  { icon: <Star className="h-5 w-5" />, label: "Gratitude Builder", earned: true, tone: "sand" },
+  { icon: <Award className="h-5 w-5" />, label: "Conflict Navigator", earned: false, tone: "lavender" },
+  { icon: <Trophy className="h-5 w-5" />, label: "Connection Master", earned: false, tone: "rose" },
+] as const;
+
+function Milestones() {
+  const tones: Record<string, string> = {
+    sage: "bg-sage-soft text-sage",
+    sky: "bg-sky-soft text-sky",
+    sand: "bg-sand-soft text-sand",
+    lavender: "bg-lavender-soft text-lavender",
+    rose: "bg-rose-soft text-rose",
+  };
+  return (
+    <SectionHeader
+      eyebrow="Milestones"
+      title="Celebrate every step"
+      desc="Small wins are how lasting change happens."
+    >
+      <div className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-8">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {milestones.map((m) => (
+            <div key={m.label} className="flex flex-col items-center text-center">
+              <div
+                className={`relative flex h-20 w-20 items-center justify-center rounded-full ${
+                  m.earned ? tones[m.tone] : "bg-muted text-muted-foreground/60"
+                }`}
+              >
+                {m.earned ? m.icon : <Lock className="h-5 w-5" />}
+                {m.earned && (
+                  <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-background ring-4 ring-card">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                  </span>
+                )}
+              </div>
+              <div className="mt-3 text-sm font-medium text-foreground">{m.label}</div>
+              <div className="text-xs text-muted-foreground">
+                {m.earned ? "Earned" : "Locked"}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SectionHeader>
+  );
+}
+
+/* ----------------------------- Therapist Corner --------------------------- */
+
+const therapists = [
+  { name: "Dr. Maya Chen", role: "LMFT · Gottman Method", initials: "MC", tone: "sage" },
+  { name: "Dr. Idris Rahman", role: "PsyD · EFT Specialist", initials: "IR", tone: "rose" },
+  { name: "Sofia Alvarez", role: "LCSW · Attachment Focus", initials: "SA", tone: "lavender" },
+] as const;
+
+function TherapistCorner() {
+  const tones: Record<string, string> = {
+    sage: "bg-sage-soft text-sage",
+    rose: "bg-rose-soft text-rose",
+    lavender: "bg-lavender-soft text-lavender",
+  };
+  return (
+    <SectionHeader
+      eyebrow="Therapist corner"
+      title="Guided by licensed experts"
+      desc="Every exercise is built on evidence-based relationship science."
+    >
+      <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_1.4fr]">
+        <div className="rounded-3xl border border-border bg-gradient-to-br from-sage-soft via-card to-lavender-soft p-6 shadow-soft sm:p-8">
+          <div className="inline-flex items-center gap-2 rounded-full bg-card/80 px-3 py-1 text-xs font-semibold text-sage backdrop-blur">
+            <ShieldCheck className="h-3.5 w-3.5" /> Therapist-approved
+          </div>
+          <h4 className="mt-5 font-display text-2xl text-foreground">
+            Evidence-based, never generic
+          </h4>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Our pathways draw from the Gottman Method, Emotionally Focused
+            Therapy, and Attachment Theory — translated into practices that
+            fit real life.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["Gottman", "EFT", "Attachment", "CBT"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-border bg-card/70 px-3 py-1 text-xs font-medium text-foreground backdrop-blur"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-8">
+          <h4 className="font-display text-xl text-foreground">Meet your guides</h4>
+          <div className="mt-5 space-y-3">
+            {therapists.map((t) => (
+              <div
+                key={t.name}
+                className="flex items-center justify-between rounded-2xl border border-border bg-secondary/40 p-3 transition-colors hover:bg-secondary"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`flex h-11 w-11 items-center justify-center rounded-full font-semibold ${tones[t.tone]}`}>
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-foreground">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                  </div>
+                </div>
+                <button className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-foreground hover:text-background">
+                  Read insights
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SectionHeader>
   );
 }
 
@@ -346,21 +872,19 @@ function Resources() {
 
 function Footer() {
   return (
-    <div className="mt-24 flex flex-col items-center gap-2 border-t border-border pt-10 text-center text-xs text-muted-foreground">
+    <div className="mt-20 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground">
       <div className="inline-flex items-center gap-2">
-        <Heart className="h-3.5 w-3.5 text-[oklch(0.7_0.1_20)]" />
+        <Heart className="h-3.5 w-3.5 text-rose" />
         Made with care for couples growing together
       </div>
-      <div>
-        This is wellness content — not a substitute for professional therapy.
-      </div>
+      <div>This is wellness content — not a substitute for professional therapy.</div>
     </div>
   );
 }
 
 /* ------------------------------ Section helper ---------------------------- */
 
-function Section({
+function SectionHeader({
   eyebrow,
   title,
   desc,
@@ -372,19 +896,13 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-20 sm:mt-28">
-      <div className="mb-8 flex flex-col gap-2">
-        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sage">
+    <section className="mt-14 sm:mt-20">
+      <div className="flex flex-col gap-1">
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-sage">
           {eyebrow}
         </span>
-        <h2 className="font-display text-[1.75rem] text-foreground sm:text-[2rem]">
-          {title}
-        </h2>
-        {desc && (
-          <p className="max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-            {desc}
-          </p>
-        )}
+        <h2 className="font-display text-2xl text-foreground sm:text-3xl">{title}</h2>
+        {desc && <p className="mt-1 max-w-xl text-sm text-muted-foreground">{desc}</p>}
       </div>
       {children}
     </section>
