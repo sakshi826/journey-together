@@ -329,19 +329,19 @@ function GuidedSeries() {
       heading: "Know Your Patterns",
       items: [
         {
-          icon: <Users className="h-4 w-4" />,
+          icon: <Users className="h-5 w-5" />,
           title: "Relationship Patterns Unpacked",
           desc: "Explore recurring conflict cycles and emotional reactions.",
           tone: "rose",
         },
         {
-          icon: <Crosshair className="h-4 w-4" />,
+          icon: <Crosshair className="h-5 w-5" />,
           title: "Relationship Boundaries",
           desc: "Explore emotional boundaries and expectations in your relationship.",
           tone: "lavender",
         },
         {
-          icon: <Heart className="h-4 w-4" />,
+          icon: <Heart className="h-5 w-5" />,
           title: "Emotional Needs Mapping",
           desc: "Understand what helps you feel emotionally safe.",
           tone: "sand",
@@ -352,19 +352,19 @@ function GuidedSeries() {
       heading: "Express and Heal",
       items: [
         {
-          icon: <Mail className="h-4 w-4" />,
+          icon: <Mail className="h-5 w-5" />,
           title: "The Unsent Letter",
           desc: "Express unresolved feelings in a safe, private space.",
           tone: "sky",
         },
         {
-          icon: <PenLine className="h-4 w-4" />,
+          icon: <PenLine className="h-5 w-5" />,
           title: "A Letter to Self",
           desc: "Reflect on your patterns and grow toward healthier responses.",
           tone: "lavender",
         },
         {
-          icon: <HandHeart className="h-4 w-4" />,
+          icon: <HandHeart className="h-5 w-5" />,
           title: "Repair and Reconnect",
           desc: "Rebuild trust and emotional safety after conflict.",
           tone: "rose",
@@ -375,19 +375,19 @@ function GuidedSeries() {
       heading: "Common Relationship Issues",
       items: [
         {
-          icon: <UserMinus className="h-4 w-4" />,
+          icon: <UserMinus className="h-5 w-5" />,
           title: "Growing Apart",
           desc: "Explore signs and solutions when partners drift apart.",
           tone: "sand",
         },
         {
-          icon: <FlameIcon className="h-4 w-4" />,
+          icon: <FlameIcon className="h-5 w-5" />,
           title: "Why Small Fights Become Big",
           desc: "Understand escalation patterns in couple conflicts.",
           tone: "rose",
         },
         {
-          icon: <UserX className="h-4 w-4" />,
+          icon: <UserX className="h-5 w-5" />,
           title: "Feeling Lonely in Love",
           desc: "Navigate emotional loneliness within a loving relationship.",
           tone: "sage",
