@@ -27,7 +27,6 @@ import {
   UserMinus,
   Flame as FlameIcon,
   UserX,
-  AlertOctagon,
   Crosshair,
   CircleDot,
 } from "lucide-react";
