@@ -49,9 +49,8 @@ function CoupleTherapyPage() {
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
         <div className="absolute -top-32 -left-24 h-[28rem] w-[28rem] rounded-full bg-rose-soft blur-3xl opacity-70" />
-        <div className="absolute top-40 -right-32 h-[32rem] w-[32rem] rounded-full bg-violet-soft blur-3xl opacity-60" />
+        <div className="absolute top-40 -right-32 h-[32rem] w-[32rem] rounded-full bg-sage-soft blur-3xl opacity-60" />
         <div className="absolute bottom-0 left-1/3 h-[28rem] w-[28rem] rounded-full bg-lavender-soft blur-3xl opacity-50" />
-        <div className="absolute top-1/2 right-1/4 h-[20rem] w-[20rem] rounded-full bg-violet/20 blur-3xl opacity-40" />
       </div>
 
       <TopBar />
@@ -79,7 +78,7 @@ function TopBar() {
       </button>
       <div className="flex items-center gap-2">
         <div className="hidden items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur sm:inline-flex">
-          <ShieldCheck className="h-3.5 w-3.5 text-violet" />
+          <ShieldCheck className="h-3.5 w-3.5 text-sage" />
           Therapist-approved
         </div>
         <div className="flex -space-x-2">
@@ -249,11 +248,11 @@ function ContinueJourney() {
       desc="A short session today keeps the momentum going."
     >
       <div className="mt-6 grid gap-4 lg:grid-cols-[2fr_1fr]">
-        <div className="group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-violet-soft via-card to-rose-soft p-6 shadow-card transition-all hover:shadow-lg sm:p-8">
+        <div className="group relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-sage-soft via-card to-rose-soft p-6 shadow-card transition-all hover:shadow-lg sm:p-8">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-card/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-violet backdrop-blur">
-                <Play className="h-3 w-3 fill-violet" /> Session 8
+              <div className="inline-flex items-center gap-2 rounded-full bg-card/80 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-sage backdrop-blur">
+                <Play className="h-3 w-3 fill-sage" /> Session 8
               </div>
               <h3 className="mt-4 font-display text-2xl text-foreground sm:text-3xl">
                 The Art of Active Listening
@@ -287,7 +286,7 @@ function ContinueJourney() {
               <span className="text-foreground">8 of 12 sessions</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-card">
-              <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-violet to-rose" />
+              <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-sage to-rose" />
             </div>
           </div>
         </div>
@@ -338,7 +337,7 @@ function Roadmap() {
           {/* connecting line */}
           <div
             aria-hidden
-            className="absolute left-6 right-6 top-10 -z-0 h-px bg-gradient-to-r from-violet via-rose to-border"
+            className="absolute left-6 right-6 top-10 -z-0 h-px bg-gradient-to-r from-sage via-rose to-border"
           />
           {phases.map((p) => (
             <PhaseCard key={p.n} {...p} />
@@ -380,7 +379,7 @@ function PhaseCard({
         <div
           className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
             isDone
-              ? "bg-violet text-primary-foreground"
+              ? "bg-sage text-primary-foreground"
               : isCurrent
                 ? "bg-rose-soft text-rose ring-4 ring-rose/15"
                 : "bg-muted text-muted-foreground"
@@ -393,7 +392,7 @@ function PhaseCard({
             isCurrent
               ? "bg-rose-soft text-rose"
               : isDone
-                ? "bg-violet-soft text-violet"
+                ? "bg-sage-soft text-sage"
                 : "bg-muted text-muted-foreground"
           }`}
         >
@@ -417,7 +416,7 @@ function PhaseCard({
       <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted">
         <div
           className={`h-full rounded-full ${
-            isDone ? "w-full bg-violet" : isCurrent ? "w-2/3 bg-gradient-to-r from-violet to-rose" : "w-0"
+            isDone ? "w-full bg-sage" : isCurrent ? "w-2/3 bg-gradient-to-r from-sage to-rose" : "w-0"
           }`}
         />
       </div>
@@ -487,7 +486,7 @@ function NextSteps() {
                 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" /> {s.time}
                 </span>
-                <button className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors group-hover:text-violet">
+                <button className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors group-hover:text-sage">
                   Begin <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
@@ -895,7 +894,7 @@ function SectionHeader({
   return (
     <section className="mt-14 sm:mt-20">
       <div className="flex flex-col gap-1">
-        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-violet">
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-sage">
           {eyebrow}
         </span>
         <h2 className="font-display text-2xl text-foreground sm:text-3xl">{title}</h2>
