@@ -90,7 +90,7 @@ function CoupleTherapyPage() {
 
   return (
     <div
-      className="min-h-screen relative overflow-hidden"
+      className="group/page min-h-screen relative overflow-hidden"
       style={{
         background:
           "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
@@ -105,13 +105,22 @@ function CoupleTherapyPage() {
             "linear-gradient(180deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
         }}
       />
+      {/* Mid-section lightness band — softens Communication & Guided Series */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255,238,248,0.42) 42%, rgba(255,235,247,0.5) 58%, rgba(255,238,248,0.35) 72%, transparent 88%)",
+        }}
+      />
       {/* Bottom depth fade */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(0deg, rgba(60,15,50,0.55) 0%, rgba(80,20,60,0.18) 30%, transparent 60%)",
+            "linear-gradient(0deg, rgba(60,15,50,0.5) 0%, rgba(80,20,60,0.15) 30%, transparent 60%)",
         }}
       />
       {/* Bottom lightness lift */}
@@ -133,27 +142,28 @@ function CoupleTherapyPage() {
         }}
       />
 
-      {/* Animated floating orbs with gentle parallax */}
+      {/* Animated floating orbs with gentle parallax — dim when a card/CTA is hovered */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow will-change-transform"
-        style={{ transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)` }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium will-change-transform"
-        style={{ transform: `translate3d(${scrollY * -0.05}px, ${scrollY * -0.1}px, 0)` }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow will-change-transform"
-        style={{ transform: `translate3d(${scrollY * 0.06}px, ${scrollY * -0.25}px, 0)` }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium will-change-transform"
-        style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * -0.15}px, 0)` }}
-      />
+        className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-out group-has-[a:hover]/page:opacity-30 group-has-[button:hover]/page:opacity-30"
+      >
+        <div
+          className="absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow will-change-transform"
+          style={{ transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)` }}
+        />
+        <div
+          className="absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium will-change-transform"
+          style={{ transform: `translate3d(${scrollY * -0.05}px, ${scrollY * -0.1}px, 0)` }}
+        />
+        <div
+          className="absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow will-change-transform"
+          style={{ transform: `translate3d(${scrollY * 0.06}px, ${scrollY * -0.25}px, 0)` }}
+        />
+        <div
+          className="absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium will-change-transform"
+          style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * -0.15}px, 0)` }}
+        />
+      </div>
 
       {/* Subtle mesh overlay */}
       <div
