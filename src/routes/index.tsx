@@ -439,17 +439,10 @@ function SeriesRow({
         aria-hidden
         className={`absolute left-0 top-0 h-full w-0 ${toneStripe[tone]} transition-all duration-300 group-hover:w-1.5`}
       />
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center">
-        <span
-          className={`absolute h-2 w-2 rounded-full ${toneStripe[tone]} opacity-60 transition-all group-hover:scale-150`}
-          style={{ left: "0.35rem", top: "0.5rem" }}
-          aria-hidden
-        />
-        <div
-          className={`relative inline-flex h-10 w-10 items-center justify-center rounded-xl ${toneStyles[tone]}`}
-        >
-          {icon}
-        </div>
+      <div
+        className={`relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${toneStyles[tone]}`}
+      >
+        {icon}
       </div>
       <div className="min-w-0 flex-1">
         <div className="truncate text-sm font-semibold text-foreground">
