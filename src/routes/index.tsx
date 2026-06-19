@@ -114,22 +114,13 @@ function CoupleTherapyPage() {
             "linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255,238,248,0.42) 42%, rgba(255,235,247,0.5) 58%, rgba(255,238,248,0.35) 72%, rgba(255,236,246,0.25) 82%, transparent 95%)",
         }}
       />
-      {/* Bottom depth fade */}
+      {/* Bottom lightness — mirrors the top fade */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(0deg, rgba(60,15,50,0.5) 0%, rgba(80,20,60,0.15) 30%, transparent 60%)",
-        }}
-      />
-      {/* Bottom lightness lift */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(0deg, rgba(255,240,250,0.45) 0%, rgba(255,230,245,0.12) 25%, transparent 55%)",
+            "linear-gradient(0deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
         }}
       />
       {/* Soft pink center glow */}
