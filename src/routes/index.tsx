@@ -286,8 +286,17 @@ function ActivityCard({
   return (
     <a
       href="#"
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
+      {/* Focus glow halo */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(255,255,255,0.7), rgba(255,210,232,0.35) 55%, transparent 80%)",
+        }}
+      />
       <div
         aria-hidden
         className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full blur-2xl transition-opacity duration-500 ${toneBlob[tone]} opacity-60 group-hover:opacity-100`}
