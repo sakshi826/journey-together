@@ -317,12 +317,6 @@ function GuidedSeries() {
           desc: "Navigate emotional loneliness within a loving relationship.",
           tone: "sage",
         },
-        {
-          icon: <AlertOctagon className="h-4 w-4" />,
-          title: "When Relationships Reach Breaking Point",
-          desc: "Identify critical thresholds and decide next steps.",
-          tone: "lavender",
-        },
       ],
     },
   ];
