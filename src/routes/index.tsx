@@ -569,8 +569,16 @@ function SeriesRow({
   return (
     <a
       href="#"
-      className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-card"
+      className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgba(255,255,255,0.6), rgba(255,210,232,0.28) 55%, transparent 80%)",
+        }}
+      />
       <span
         aria-hidden
         className={`absolute left-0 top-0 h-full w-0 ${toneStripe[tone]} transition-all duration-300 group-hover:w-1.5`}
