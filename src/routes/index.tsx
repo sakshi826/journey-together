@@ -61,10 +61,7 @@ function CoupleTherapyPage() {
         <Roadmap />
         <NextSteps />
         <RelationshipTools />
-        <Insights />
         <ResourceLibrary />
-        <Milestones />
-        <TherapistCorner />
         <Footer />
       </main>
     </div>
