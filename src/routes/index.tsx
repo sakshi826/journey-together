@@ -49,7 +49,7 @@ export const Route = createFileRoute("/")({
 
 function CoupleTherapyPage() {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen bg-background relative">
       {/* Jewel gradient + sheen background */}
       <div
         aria-hidden
