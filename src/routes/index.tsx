@@ -79,7 +79,7 @@ function TopBar() {
       </button>
       <div className="flex items-center gap-2">
         <div className="hidden items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur sm:inline-flex">
-          <ShieldCheck className="h-3.5 w-3.5 text-sage" />
+          <ShieldCheck className="h-3.5 w-3.5 text-violet" />
           Therapist-approved
         </div>
         <div className="flex -space-x-2">
@@ -487,7 +487,7 @@ function NextSteps() {
                 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" /> {s.time}
                 </span>
-                <button className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors group-hover:text-sage">
+                <button className="inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors group-hover:text-violet">
                   Begin <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
