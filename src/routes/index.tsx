@@ -167,13 +167,13 @@ function EmotionalConnection() {
     },
     {
       icon: <HandHeart className="h-5 w-5" />,
-      title: "Forgiveness Corner & Apology Exchange",
+      title: "Forgiveness Corner and Apology Exchange",
       desc: "Offer and receive heartfelt apologies in a safe, guided space.",
       tone: "lavender",
     },
     {
       icon: <RefreshCcw className="h-5 w-5" />,
-      title: "Rupture & Repair Work",
+      title: "Rupture and Repair Work",
       desc: "Move through hard moments together and come back closer.",
       tone: "sage",
     },
@@ -187,7 +187,7 @@ function EmotionalConnection() {
 
   return (
     <Section
-      title="Emotional Connection & Trust"
+      title="Emotional Connection and Trust"
       desc="Strengthen emotional connection, rebuild trust, and learn healthy relationship repair."
     >
       <div className="grid gap-4 sm:grid-cols-2">
@@ -199,7 +199,7 @@ function EmotionalConnection() {
   );
 }
 
-/* -------------------- Section 2: Communication & Alignment -------------------- */
+/* -------------------- Section 2: Communication and Alignment -------------------- */
 
 function CommunicationAlignment() {
   const items: { icon: React.ReactNode; title: string; desc: string; tone: Tone }[] = [
@@ -211,13 +211,13 @@ function CommunicationAlignment() {
     },
     {
       icon: <Compass className="h-5 w-5" />,
-      title: "Goals & Dreams Alignment",
+      title: "Goals and Dreams Alignment",
       desc: "Map the future you both want and the steps to get there.",
       tone: "lavender",
     },
     {
       icon: <Scale className="h-5 w-5" />,
-      title: "Money Values & Goal Alignment",
+      title: "Money Values and Goal Alignment",
       desc: "Align on spending, saving, and financial priorities together.",
       tone: "sand",
     },
@@ -231,7 +231,7 @@ function CommunicationAlignment() {
 
   return (
     <Section
-      title="Communication & Partnership Alignment"
+      title="Communication and Partnership Alignment"
       desc="Communicate with clarity and build a shared vision for life together."
     >
       <div className="grid gap-4 sm:grid-cols-2">
@@ -274,7 +274,7 @@ function GuidedSeries() {
       ],
     },
     {
-      heading: "Express & Heal",
+      heading: "Express and Heal",
       items: [
         {
           icon: <Mail className="h-4 w-4" />,
@@ -290,7 +290,7 @@ function GuidedSeries() {
         },
         {
           icon: <HandHeart className="h-4 w-4" />,
-          title: "Repair & Reconnect",
+          title: "Repair and Reconnect",
           desc: "Rebuild trust and emotional safety after conflict.",
           tone: "rose",
         },
