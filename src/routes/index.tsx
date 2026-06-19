@@ -49,55 +49,52 @@ export const Route = createFileRoute("/")({
 
 function CoupleTherapyPage() {
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Jewel gradient + sheen background */}
+    <div
+      className="min-h-screen relative"
+      style={{
+        background: "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
+      }}
+    >
+      {/* Top lightness fade */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-      >
-        {/* Base pink gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
-          }}
-        />
-        {/* Stronger top lightness fade */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(255,220,240,0.55) 0%, rgba(255,210,235,0.2) 40%, transparent 75%)",
-          }}
-        />
-        {/* Bottom depth fade */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(0deg, rgba(80,20,60,0.5) 0%, transparent 55%)",
-          }}
-        />
-        {/* Soft pink center glow */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 50% 15%, rgba(255,200,225,0.35), transparent 55%)",
-          }}
-        />
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,220,240,0.55) 0%, rgba(255,210,235,0.2) 40%, transparent 75%)",
+        }}
+      />
+      {/* Bottom depth fade */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(80,20,60,0.5) 0%, transparent 55%)",
+        }}
+      />
+      {/* Soft pink center glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse at 50% 15%, rgba(255,200,225,0.35), transparent 55%)",
+        }}
+      />
+
+      <div className="relative z-10">
+        <TopBar />
+
+        <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
+          <RelationshipTools />
+          <EmotionalConnection />
+          <CommunicationAlignment />
+          <GuidedSeries />
+          <ResourceLibrary />
+          <Footer />
+        </main>
       </div>
-
-      <TopBar />
-
-      <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
-        <RelationshipTools />
-        <EmotionalConnection />
-        <CommunicationAlignment />
-        <GuidedSeries />
-        <ResourceLibrary />
-        <Footer />
-      </main>
     </div>
   );
 }
@@ -517,7 +514,7 @@ const tools: { icon: React.ReactNode; title: string; desc: string; tone: Tone }[
 
 function RelationshipTools() {
   return (
-    <section className="relative -mx-5 mt-14 overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-background px-5 pt-14 pb-2 sm:-mx-8 sm:mt-20 sm:px-8 sm:pt-14 sm:pb-4">
+    <section className="relative -mx-5 mt-14 overflow-hidden px-5 pt-14 pb-2 sm:-mx-8 sm:mt-20 sm:px-8 sm:pt-14 sm:pb-4">
       {/* Soft full-width background blobs */}
       <div
         aria-hidden
