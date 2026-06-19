@@ -84,16 +84,16 @@
   --ring: oklch(0.58 0.2 350);
 
   /* Couples accent palette: brighter, more saturated tones */
-  --sage: oklch(0.68 0.19 150);          /* bright sage green */
-  --sage-soft: oklch(0.96 0.045 150);
-  --rose: oklch(0.7 0.2 15);             /* warm coral-rose */
-  --rose-soft: oklch(0.97 0.055 15);
-  --lavender: oklch(0.62 0.2 310);       /* vibrant pink-purple */
-  --lavender-soft: oklch(0.96 0.055 310);
-  --sand: oklch(0.8 0.12 25);
-  --sand-soft: oklch(0.96 0.05 75);
-  --sky: oklch(0.72 0.1 230);
-  --sky-soft: oklch(0.95 0.04 230);
+  --sage: oklch(0.72 0.2 150);
+  --sage-soft: oklch(0.975 0.06 150);
+  --rose: oklch(0.74 0.21 15);
+  --rose-soft: oklch(0.98 0.07 15);
+  --lavender: oklch(0.66 0.22 310);
+  --lavender-soft: oklch(0.975 0.07 310);
+  --sand: oklch(0.84 0.14 60);
+  --sand-soft: oklch(0.98 0.065 75);
+  --sky: oklch(0.76 0.13 230);
+  --sky-soft: oklch(0.97 0.055 230);
 
   --shadow-soft: 0 1px 2px oklch(0.3 0.02 35 / 0.04), 0 8px 24px oklch(0.3 0.02 35 / 0.06);
   --shadow-card: 0 1px 2px oklch(0.3 0.02 35 / 0.05), 0 12px 40px oklch(0.3 0.02 35 / 0.08);
