@@ -74,6 +74,15 @@ function CoupleTherapyPage() {
             "linear-gradient(0deg, rgba(60,15,50,0.55) 0%, rgba(80,20,60,0.18) 30%, transparent 60%)",
         }}
       />
+      {/* Bottom lightness lift */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(255,240,250,0.45) 0%, rgba(255,230,245,0.12) 25%, transparent 55%)",
+        }}
+      />
       {/* Soft pink center glow */}
       <div
         aria-hidden
