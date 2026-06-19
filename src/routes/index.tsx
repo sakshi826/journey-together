@@ -53,7 +53,7 @@ function CoupleTherapyPage() {
       {/* Jewel gradient + sheen background */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       >
         {/* Base pink gradient */}
         <div
