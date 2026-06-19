@@ -634,7 +634,7 @@ function RelationshipTools() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-1 sm:mb-10">
           <h2 className="font-display text-3xl text-foreground sm:text-4xl">
-            Your Connection Toolkit
+            Relationship Tools
           </h2>
           <p className="mt-1 max-w-2xl text-sm leading-relaxed text-foreground">
             Four therapist-designed rituals to deepen your connection, one day at a time.
