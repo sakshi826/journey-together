@@ -63,7 +63,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.04 340);
 
-  --primary: oklch(0.6 0.17 350); /* rose-pink primary */
+  --primary: oklch(0.58 0.2 285); /* modern violet-purple */
   --primary-foreground: oklch(0.99 0.005 350);
 
   --secondary: oklch(0.95 0.025 340);
@@ -80,7 +80,7 @@
 
   --border: oklch(0.92 0.025 340);
   --input: oklch(0.92 0.025 340);
-  --ring: oklch(0.6 0.17 350);
+  --ring: oklch(0.58 0.2 285);
 
   /* Couples accent palette: rose / pink / purple */
   --sage: oklch(0.66 0.16 355);          /* hot rose (was sage) */
@@ -89,6 +89,8 @@
   --rose-soft: oklch(0.95 0.04 15);
   --lavender: oklch(0.62 0.16 310);      /* pink-purple */
   --lavender-soft: oklch(0.95 0.035 310);
+  --violet: oklch(0.58 0.2 285);         /* modern purple */
+  --violet-soft: oklch(0.94 0.04 285);
   --sand: oklch(0.78 0.1 25);
   --sand-soft: oklch(0.95 0.035 75);
   --sky: oklch(0.7 0.08 230);
