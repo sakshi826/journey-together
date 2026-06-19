@@ -123,11 +123,17 @@
 
   html, body {
     font-family: var(--font-sans);
-    background-color: var(--color-background);
+    background-color: #5B2A86;
+    background-image:
+      radial-gradient(circle at 90% 0%, rgba(255,255,255,0.06), transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(255,255,255,0.05), transparent 50%),
+      linear-gradient(160deg, #5B2A86 0%, #8C2E7E 50%, #C2356E 100%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
