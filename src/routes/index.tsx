@@ -517,7 +517,7 @@ const tools: { icon: React.ReactNode; title: string; desc: string; tone: Tone }[
 
 function RelationshipTools() {
   return (
-    <section className="relative -mx-5 mt-14 overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-background px-5 pt-14 pb-2 sm:-mx-8 sm:mt-20 sm:px-8 sm:pt-14 sm:pb-4">
+    <section className="relative -mx-5 mt-14 overflow-hidden px-5 pt-14 pb-2 sm:-mx-8 sm:mt-20 sm:px-8 sm:pt-14 sm:pb-4">
       {/* Soft full-width background blobs */}
       <div
         aria-hidden
