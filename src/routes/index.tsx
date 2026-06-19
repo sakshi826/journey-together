@@ -93,6 +93,35 @@ function CoupleTherapyPage() {
         }}
       />
 
+      {/* Animated floating orbs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium"
+      />
+
+      {/* Subtle mesh overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          backgroundSize: "128px 128px",
+        }}
+      />
+
       <div className="relative z-10">
         <TopBar />
 
