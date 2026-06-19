@@ -433,12 +433,23 @@ function SeriesRow({
   return (
     <a
       href="#"
-      className={`group flex items-center gap-4 overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${toneGradients[tone]} p-4 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
+      className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-card"
     >
-      <div
-        className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-soft ${toneIconCard[tone]}`}
-      >
-        {icon}
+      <span
+        aria-hidden
+        className={`absolute left-0 top-0 h-full w-0 ${toneStripe[tone]} transition-all duration-300 group-hover:w-1.5`}
+      />
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+        <span
+          className={`absolute h-2 w-2 rounded-full ${toneStripe[tone]} opacity-60 transition-all group-hover:scale-150`}
+          style={{ left: "0.35rem", top: "0.5rem" }}
+          aria-hidden
+        />
+        <div
+          className={`relative inline-flex h-10 w-10 items-center justify-center rounded-xl ${toneStyles[tone]}`}
+        >
+          {icon}
+        </div>
       </div>
       <div className="min-w-0 flex-1">
         <div className="truncate text-sm font-semibold text-foreground">
@@ -492,19 +503,33 @@ function RelationshipTools() {
         {tools.map((t) => (
           <div
             key={t.title}
-            className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${toneGradients[t.tone]} p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card sm:p-6`}
+            className={`group relative isolate overflow-hidden rounded-[28px] border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7`}
           >
+            <span
+              aria-hidden
+              className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -z-10 translate-x-[-120%] bg-gradient-to-r from-transparent via-foreground/5 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
+            />
             <div className="flex items-start justify-between">
-              <div
-                className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl shadow-soft ${toneIconCard[t.tone]}`}
-              >
-                {t.icon}
+              <div className="relative">
+                <span
+                  aria-hidden
+                  className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
+                />
+                <div
+                  className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl ${toneStyles[t.tone]}`}
+                >
+                  {t.icon}
+                </div>
               </div>
-              <button className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors group-hover:bg-foreground group-hover:text-background">
-                <ArrowRight className="h-4 w-4" />
+              <button className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition-transform group-hover:scale-105">
+                Start <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </div>
-            <h4 className="mt-5 font-display text-xl text-foreground">
+            <h4 className="mt-6 font-display text-xl text-foreground">
               {t.title}
             </h4>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
