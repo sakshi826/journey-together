@@ -56,13 +56,13 @@ function CoupleTherapyPage() {
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
         {/* Deep base wash */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_oklch(0.92_0.08_340)_0%,_oklch(0.96_0.04_350)_40%,_oklch(0.94_0.06_310)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_oklch(0.88_0.12_340)_0%,_oklch(0.92_0.08_350)_40%,_oklch(0.90_0.10_310)_100%)]" />
 
         {/* Aurora blobs — richer, more visible */}
-        <div className="absolute -top-40 -left-32 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-[oklch(0.65_0.22_350)] via-[oklch(0.58_0.24_330)] to-transparent blur-[120px] opacity-80 animate-[pulse_12s_ease-in-out_infinite]" />
-        <div className="absolute top-32 -right-40 h-[38rem] w-[38rem] rounded-full bg-gradient-to-bl from-[oklch(0.55_0.26_310)] via-[oklch(0.62_0.22_290)] to-transparent blur-[130px] opacity-75 animate-[pulse_14s_ease-in-out_infinite]" />
-        <div className="absolute bottom-[-10rem] left-1/4 h-[36rem] w-[36rem] rounded-full bg-gradient-to-tr from-[oklch(0.60_0.20_15)] via-[oklch(0.55_0.24_340)] to-transparent blur-[140px] opacity-70 animate-[pulse_16s_ease-in-out_infinite]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[28rem] w-[28rem] rounded-full bg-gradient-to-r from-[oklch(0.68_0.16_320)] to-[oklch(0.72_0.14_350)] blur-[100px] opacity-60" />
+        <div className="absolute -top-40 -left-32 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-[oklch(0.55_0.28_350)] via-[oklch(0.48_0.30_330)] to-[oklch(0.60_0.20_350)] blur-[80px] opacity-90 animate-[pulse_12s_ease-in-out_infinite]" />
+        <div className="absolute top-32 -right-40 h-[38rem] w-[38rem] rounded-full bg-gradient-to-bl from-[oklch(0.45_0.30_310)] via-[oklch(0.52_0.26_290)] to-[oklch(0.58_0.20_310)] blur-[90px] opacity-85 animate-[pulse_14s_ease-in-out_infinite]" />
+        <div className="absolute bottom-[-10rem] left-1/4 h-[36rem] w-[36rem] rounded-full bg-gradient-to-tr from-[oklch(0.50_0.24_15)] via-[oklch(0.45_0.28_340)] to-[oklch(0.55_0.18_340)] blur-[100px] opacity-80 animate-[pulse_16s_ease-in-out_infinite]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[30rem] w-[30rem] rounded-full bg-gradient-to-r from-[oklch(0.58_0.20_320)] to-[oklch(0.62_0.18_350)] blur-[70px] opacity-75" />
 
         {/* Subtle grid */}
         <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(oklch(0.3_0.1_320)_1px,transparent_1px),linear-gradient(90deg,oklch(0.3_0.1_320)_1px,transparent_1px)] [background-size:48px_48px]" />
