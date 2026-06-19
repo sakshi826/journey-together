@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -47,10 +48,49 @@ export const Route = createFileRoute("/")({
 
 /* ---------------------------------- Page ---------------------------------- */
 
+function useParallaxScroll() {
+  const [y, setY] = useState(0);
+  const target = useRef(0);
+  const current = useRef(0);
+  const raf = useRef<number | null>(null);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    const tick = () => {
+      // Smooth easing toward target for "slow-motion" feel
+      current.current += (target.current - current.current) * 0.08;
+      setY(current.current);
+      if (Math.abs(target.current - current.current) > 0.1) {
+        raf.current = requestAnimationFrame(tick);
+      } else {
+        raf.current = null;
+      }
+    };
+
+    const onScroll = () => {
+      target.current = window.scrollY;
+      if (raf.current == null) raf.current = requestAnimationFrame(tick);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf.current != null) cancelAnimationFrame(raf.current);
+    };
+  }, []);
+
+  return y;
+}
+
 function CoupleTherapyPage() {
+  const scrollY = useParallaxScroll();
+
   return (
     <div
-      className="min-h-screen relative"
+      className="min-h-screen relative overflow-hidden"
       style={{
         background:
           "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
@@ -93,22 +133,26 @@ function CoupleTherapyPage() {
         }}
       />
 
-      {/* Animated floating orbs */}
+      {/* Animated floating orbs with gentle parallax */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow"
+        className="pointer-events-none absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow will-change-transform"
+        style={{ transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)` }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium"
+        className="pointer-events-none absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium will-change-transform"
+        style={{ transform: `translate3d(${scrollY * -0.05}px, ${scrollY * -0.1}px, 0)` }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow"
+        className="pointer-events-none absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow will-change-transform"
+        style={{ transform: `translate3d(${scrollY * 0.06}px, ${scrollY * -0.25}px, 0)` }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium"
+        className="pointer-events-none absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium will-change-transform"
+        style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * -0.15}px, 0)` }}
       />
 
       {/* Subtle mesh overlay */}
