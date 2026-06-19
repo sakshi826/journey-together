@@ -46,6 +46,9 @@
 
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float-slow: float-slow 12s ease-in-out infinite;
+  --animate-float-medium: float-medium 8s ease-in-out infinite;
 }
 
 :root {
@@ -55,22 +58,22 @@
   --background: oklch(0.985 0.012 350);
   --foreground: oklch(0.24 0.04 340);
 
-  --card: oklch(1 0 0);
+  --card: oklch(0.99 0.01 345);
   --card-foreground: oklch(0.24 0.04 340);
 
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.04 340);
 
-  --primary: oklch(0.6 0.17 350); /* rose-pink primary */
+  --primary: oklch(0.58 0.2 350); /* brighter rose-pink primary */
   --primary-foreground: oklch(0.99 0.005 350);
 
-  --secondary: oklch(0.95 0.025 340);
+  --secondary: oklch(0.95 0.03 340);
   --secondary-foreground: oklch(0.32 0.06 340);
 
   --muted: oklch(0.95 0.02 340);
   --muted-foreground: oklch(0.52 0.04 340);
 
-  --accent: oklch(0.9 0.06 320); /* soft lavender-pink */
+  --accent: oklch(0.9 0.08 320); /* brighter lavender-pink */
   --accent-foreground: oklch(0.32 0.09 320);
 
   --destructive: oklch(0.6 0.22 20);
@@ -78,19 +81,19 @@
 
   --border: oklch(0.92 0.025 340);
   --input: oklch(0.92 0.025 340);
-  --ring: oklch(0.6 0.17 350);
+  --ring: oklch(0.58 0.2 350);
 
-  /* Couples accent palette: rose / pink / purple */
-  --sage: oklch(0.66 0.16 355);          /* hot rose (was sage) */
-  --sage-soft: oklch(0.95 0.035 355);
-  --rose: oklch(0.7 0.17 15);            /* warm coral-rose */
-  --rose-soft: oklch(0.95 0.04 15);
-  --lavender: oklch(0.62 0.16 310);      /* pink-purple */
-  --lavender-soft: oklch(0.95 0.035 310);
-  --sand: oklch(0.78 0.1 25);
-  --sand-soft: oklch(0.95 0.035 75);
-  --sky: oklch(0.7 0.08 230);
-  --sky-soft: oklch(0.94 0.03 230);
+  /* Couples accent palette: brighter, more saturated tones */
+  --sage: oklch(0.68 0.19 150);          /* bright sage green */
+  --sage-soft: oklch(0.96 0.045 150);
+  --rose: oklch(0.7 0.2 15);             /* warm coral-rose */
+  --rose-soft: oklch(0.97 0.055 15);
+  --lavender: oklch(0.62 0.2 310);       /* vibrant pink-purple */
+  --lavender-soft: oklch(0.96 0.055 310);
+  --sand: oklch(0.8 0.12 25);
+  --sand-soft: oklch(0.96 0.05 75);
+  --sky: oklch(0.72 0.1 230);
+  --sky-soft: oklch(0.95 0.04 230);
 
   --shadow-soft: 0 1px 2px oklch(0.3 0.02 35 / 0.04), 0 8px 24px oklch(0.3 0.02 35 / 0.06);
   --shadow-card: 0 1px 2px oklch(0.3 0.02 35 / 0.05), 0 12px 40px oklch(0.3 0.02 35 / 0.08);
@@ -149,4 +152,15 @@
 
 @utility shadow-soft {
   box-shadow: var(--shadow-soft);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -20px); }
+  66% { transform: translate(-20px, 15px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-25px, 25px); }
 }
