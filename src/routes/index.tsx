@@ -519,10 +519,6 @@ function RelationshipTools() {
                 aria-hidden
                 className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
               />
-              <span
-                aria-hidden
-                className="pointer-events-none absolute inset-0 -z-10 translate-x-[-120%] bg-gradient-to-r from-transparent via-foreground/5 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
-              />
               <div className="flex items-start justify-between">
                 <div className="relative">
                   <span
