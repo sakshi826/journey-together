@@ -289,10 +289,6 @@ function ActivityCard({
             "radial-gradient(closest-side, rgba(255,255,255,0.7), rgba(255,210,232,0.35) 55%, transparent 80%)",
         }}
       />
-      <div
-        aria-hidden
-        className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full blur-2xl transition-opacity duration-500 ${toneBlob[tone]} opacity-60 group-hover:opacity-100`}
-      />
       <div className="relative flex items-start justify-between">
         <div
           className={`inline-flex h-14 w-14 items-center justify-center rounded-full ring-8 ${toneRing[tone]} ${toneStyles[tone]}`}
