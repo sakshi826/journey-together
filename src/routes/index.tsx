@@ -513,7 +513,7 @@ function RelationshipTools() {
           {tools.map((t) => (
             <div
               key={t.title}
-              className={`group relative isolate overflow-hidden rounded-[28px] border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7`}
+              className={`group relative isolate overflow-hidden rounded-[28px] border border-border bg-gradient-to-br ${toneGradients[t.tone]} p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7`}
             >
               <span
                 aria-hidden
@@ -530,7 +530,7 @@ function RelationshipTools() {
                     className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
                   />
                   <div
-                    className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl ${toneStyles[t.tone]}`}
+                    className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl shadow-soft ${toneIconCard[t.tone]}`}
                   >
                     {t.icon}
                   </div>
