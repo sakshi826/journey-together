@@ -488,7 +488,7 @@ const tools: { icon: React.ReactNode; title: string; desc: string; tone: Tone }[
 
 function RelationshipTools() {
   return (
-    <section className="relative -mx-5 mt-10 overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-background px-5 pt-10 pb-14 sm:-mx-8 sm:mt-14 sm:px-8 sm:pt-14 sm:pb-20">
+    <section className="relative -mx-5 mt-14 overflow-hidden bg-gradient-to-b from-secondary/30 via-background to-background px-5 pt-14 pb-20 sm:-mx-8 sm:mt-20 sm:px-8 sm:pt-14 sm:pb-20">
       {/* Soft full-width background blobs */}
       <div
         aria-hidden
@@ -593,8 +593,8 @@ function ResourceLibrary() {
   };
   return (
     <Section
-      title="Read, listen, and reflect"
-      desc="Hand-picked by therapists and updated every week."
+      title="Read and Reflect"
+      desc="Curated articles, stories, and insights to grow closer together."
     >
       <div className="grid gap-4 sm:grid-cols-2">
         {resources.map((r) => (
