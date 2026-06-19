@@ -92,7 +92,7 @@ function CoupleTherapyPage() {
       className="group/page min-h-screen relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
+          "linear-gradient(160deg, #F8BBD9 0%, #FBCFE8 25%, #FCE4EC 55%, #FFF0F5 100%)",
       }}
     >
       {/* Strong top lightness fade */}
@@ -101,16 +101,16 @@ function CoupleTherapyPage() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
+            "linear-gradient(180deg, rgba(255,250,252,0.95) 0%, rgba(255,245,250,0.72) 20%, rgba(255,235,245,0.35) 50%, transparent 85%)",
         }}
       />
-      {/* Mid-section lightness band — softens Communication & Guided Series */}
+      {/* Mid-section lightness band */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255,238,248,0.42) 42%, rgba(255,235,247,0.5) 58%, rgba(255,238,248,0.35) 72%, rgba(255,236,246,0.25) 82%, transparent 95%)",
+            "linear-gradient(180deg, transparent 0%, transparent 22%, rgba(255,250,253,0.62) 38%, rgba(255,248,252,0.72) 55%, rgba(255,250,253,0.55) 70%, rgba(255,248,252,0.4) 82%, transparent 95%)",
         }}
       />
       {/* Bottom lightness — mirrors the top fade */}
@@ -119,26 +119,26 @@ function CoupleTherapyPage() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(0deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
+            "linear-gradient(0deg, rgba(255,250,252,0.95) 0%, rgba(255,245,250,0.72) 20%, rgba(255,235,245,0.35) 50%, transparent 85%)",
         }}
       />
-      {/* Soft pink center glow */}
+      {/* Soft center glow */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse at 50% 10%, rgba(255,215,235,0.55), transparent 50%)",
+            "radial-gradient(ellipse at 50% 10%, rgba(255,240,248,0.75), transparent 55%)",
         }}
       />
 
       {/* Animated floating orbs with gentle parallax — dim when a card/CTA is hovered */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-out group-has-[a:hover]/page:opacity-30 group-has-[button:hover]/page:opacity-30"
+        className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-out group-has-[a:hover]/page:opacity-25 group-has-[button:hover]/page:opacity-25"
       >
         <div
-          className="absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow will-change-transform"
+          className="absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/30 blur-[80px] animate-float-slow will-change-transform"
           style={{ transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)` }}
         />
         <div
