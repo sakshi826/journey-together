@@ -88,16 +88,18 @@ function CoupleTherapyPage() {
         />
       </div>
 
-      <TopBar />
+      <div className="relative z-10">
+        <TopBar />
 
-      <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
-        <RelationshipTools />
-        <EmotionalConnection />
-        <CommunicationAlignment />
-        <GuidedSeries />
-        <ResourceLibrary />
-        <Footer />
-      </main>
+        <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
+          <RelationshipTools />
+          <EmotionalConnection />
+          <CommunicationAlignment />
+          <GuidedSeries />
+          <ResourceLibrary />
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }
