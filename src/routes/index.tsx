@@ -82,16 +82,7 @@ function TopBar() {
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         Back
       </button>
-      <div className="flex items-center gap-2">
-        <div className="hidden items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur sm:inline-flex">
-          <ShieldCheck className="h-3.5 w-3.5 text-sage" />
-          Therapist-approved
-        </div>
-        <div className="flex -space-x-2">
-          <Avatar tone="rose" label="A" />
-          <Avatar tone="sage" label="J" />
-        </div>
-      </div>
+      <div className="flex items-center gap-2" />
     </header>
   );
 }
@@ -538,17 +529,7 @@ function ResourceLibrary() {
 /* --------------------------------- Footer --------------------------------- */
 
 function Footer() {
-  return (
-    <div className="mt-20 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground">
-      <div className="inline-flex items-center gap-2">
-        <Heart className="h-3.5 w-3.5 text-rose" />
-        Made with care for couples growing together
-      </div>
-      <div>
-        This is wellness content, not a substitute for professional therapy.
-      </div>
-    </div>
-  );
+  return null;
 }
 
 /* ------------------------------ Section helper ---------------------------- */
