@@ -313,7 +313,7 @@ function GuidedSeries() {
         },
         {
           icon: <UserX className="h-4 w-4" />,
-          title: "Loving Someone But Feeling Lonely",
+          title: "Feeling Lonely in Love",
           desc: "Navigate emotional loneliness within a loving relationship.",
           tone: "sage",
         },
