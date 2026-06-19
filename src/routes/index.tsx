@@ -50,28 +50,34 @@ export const Route = createFileRoute("/")({
 function CoupleTherapyPage() {
   return (
     <div className="min-h-screen bg-background relative">
-      {/* Premium pink-purple ambient background */}
+      {/* Jewel gradient + sheen background */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
-        {/* Base gradient wash */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_oklch(0.97_0.04_340)_0%,_oklch(0.985_0.012_350)_45%,_oklch(0.96_0.05_310)_100%)]" />
-
-        {/* Aurora blobs */}
-        <div className="absolute -top-40 -left-32 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-[oklch(0.78_0.18_350)] via-[oklch(0.72_0.2_330)] to-transparent blur-[120px] opacity-60 animate-[pulse_12s_ease-in-out_infinite]" />
-        <div className="absolute top-32 -right-40 h-[38rem] w-[38rem] rounded-full bg-gradient-to-bl from-[oklch(0.7_0.22_310)] via-[oklch(0.75_0.18_290)] to-transparent blur-[130px] opacity-55 animate-[pulse_14s_ease-in-out_infinite]" />
-        <div className="absolute bottom-[-10rem] left-1/4 h-[36rem] w-[36rem] rounded-full bg-gradient-to-tr from-[oklch(0.78_0.16_15)] via-[oklch(0.72_0.2_340)] to-transparent blur-[140px] opacity-50 animate-[pulse_16s_ease-in-out_infinite]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[26rem] w-[26rem] rounded-full bg-gradient-to-r from-[oklch(0.82_0.12_320)] to-[oklch(0.85_0.1_350)] blur-[100px] opacity-40" />
-
-        {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(oklch(0.3_0.1_320)_1px,transparent_1px),linear-gradient(90deg,oklch(0.3_0.1_320)_1px,transparent_1px)] [background-size:48px_48px]" />
-
-        {/* Grain noise */}
-        <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay [background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>')]" />
-
-        {/* Top sheen */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.7_0.18_330)]/40 to-transparent" />
+        {/* Base jewel gradient */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(160deg, #5B2A86 0%, #8C2E7E 50%, #C2356E 100%)",
+          }}
+        />
+        {/* Top-right sheen */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 90% 0%, rgba(255,255,255,0.06), transparent 50%)",
+          }}
+        />
+        {/* Bottom-left sheen */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 0% 100%, rgba(255,255,255,0.05), transparent 50%)",
+          }}
+        />
       </div>
 
       <TopBar />
