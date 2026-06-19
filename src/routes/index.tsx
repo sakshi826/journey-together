@@ -488,50 +488,74 @@ const tools: { icon: React.ReactNode; title: string; desc: string; tone: Tone }[
 
 function RelationshipTools() {
   return (
-    <Section
-      title="Daily practices, designed together"
-      desc="Small rituals that compound into a stronger partnership."
-    >
-      <div className="grid gap-4 sm:grid-cols-2">
-        {tools.map((t) => (
-          <div
-            key={t.title}
-            className={`group relative isolate overflow-hidden rounded-[28px] border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7`}
-          >
-            <span
-              aria-hidden
-              className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
-            />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 -z-10 translate-x-[-120%] bg-gradient-to-r from-transparent via-foreground/5 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
-            />
-            <div className="flex items-start justify-between">
-              <div className="relative">
-                <span
-                  aria-hidden
-                  className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
-                />
-                <div
-                  className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl ${toneStyles[t.tone]}`}
-                >
-                  {t.icon}
+    <section className="relative mt-10 sm:mt-14">
+      <div className="relative overflow-hidden rounded-[32px] border border-border/60 bg-gradient-to-b from-secondary/40 to-background p-6 sm:p-10">
+        {/* Decorative soft blobs */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-rose-soft blur-3xl opacity-50"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-sage-soft blur-3xl opacity-40"
+        />
+
+        {/* Header */}
+        <div className="relative mb-8 flex flex-col items-center text-center sm:mb-10">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-background/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground ring-1 ring-border">
+            <Sparkles className="h-3 w-3 text-rose" />
+            Daily Practices
+          </span>
+          <h2 className="mt-4 font-display text-3xl text-foreground sm:text-4xl">
+            Start Your Journey Together
+          </h2>
+          <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted-foreground">
+            Four therapist-designed rituals to deepen connection, one day at a time.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="relative grid gap-4 sm:grid-cols-2">
+          {tools.map((t) => (
+            <div
+              key={t.title}
+              className="group relative isolate overflow-hidden rounded-[24px] border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7"
+            >
+              <span
+                aria-hidden
+                className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
+              />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 -z-10 translate-x-[-120%] bg-gradient-to-r from-transparent via-foreground/5 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]"
+              />
+              <div className="flex items-start justify-between">
+                <div className="relative">
+                  <span
+                    aria-hidden
+                    className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
+                  />
+                  <div
+                    className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl ${toneStyles[t.tone]}`}
+                  >
+                    {t.icon}
+                  </div>
                 </div>
+                <button className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition-transform group-hover:scale-105">
+                  Start <ArrowRight className="h-3.5 w-3.5" />
+                </button>
               </div>
-              <button className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition-transform group-hover:scale-105">
-                Start <ArrowRight className="h-3.5 w-3.5" />
-              </button>
+              <h4 className="mt-6 font-display text-xl text-foreground">
+                {t.title}
+              </h4>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                {t.desc}
+              </p>
             </div>
-            <h4 className="mt-6 font-display text-xl text-foreground">
-              {t.title}
-            </h4>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {t.desc}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
 
