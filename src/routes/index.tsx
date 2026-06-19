@@ -440,7 +440,7 @@ function SeriesRow({
         className={`absolute left-0 top-0 h-full w-0 ${toneStripe[tone]} transition-all duration-300 group-hover:w-1.5`}
       />
       <div
-        className={`relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${toneStyles[tone]}`}
+        className={`relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${toneStyles[tone]}`}
       >
         {icon}
       </div>
