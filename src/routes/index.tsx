@@ -542,25 +542,21 @@ const resources = [
     icon: <BookOpen className="h-5 w-5" />,
     title: "Articles",
     tone: "sand",
-    trending: true,
   },
   {
     icon: <Lightbulb className="h-5 w-5" />,
     title: "Therapist Tips",
     tone: "sky",
-    trending: false,
   },
   {
     icon: <HeartHandshake className="h-5 w-5" />,
     title: "Real Couple Stories",
     tone: "lavender",
-    trending: true,
   },
   {
     icon: <Brain className="h-5 w-5" />,
     title: "Relationship Myths",
     tone: "sage",
-    trending: false,
   },
 ] as const;
 
@@ -595,11 +591,6 @@ function ResourceLibrary() {
               >
                 {r.icon}
               </div>
-              {r.trending && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-foreground/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-background">
-                  <Flame className="h-3 w-3" /> Trending
-                </span>
-              )}
             </div>
             <h4 className="mt-5 font-display text-2xl text-foreground">
               {r.title}
