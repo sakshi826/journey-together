@@ -678,21 +678,25 @@ const resources = [
     icon: <BookOpen className="h-5 w-5" />,
     title: "Articles",
     tone: "sand",
+    href: "/couple_module/resources/relationship/articles",
   },
   {
     icon: <Lightbulb className="h-5 w-5" />,
     title: "Therapist Tips",
     tone: "sky",
+    href: "/couple_module/resources/relationship/tips",
   },
   {
     icon: <HeartHandshake className="h-5 w-5" />,
     title: "Real Couple Stories",
     tone: "lavender",
+    href: "/couple_module/resources/relationship/stories",
   },
   {
     icon: <Brain className="h-5 w-5" />,
     title: "Relationship Myths",
     tone: "sage",
+    href: "/couple_module/resources/relationship/myths",
   },
 ] as const;
 
@@ -718,7 +722,7 @@ function ResourceLibrary() {
         {resources.map((r) => (
           <a
             key={r.title}
-            href="#"
+            href={r.href}
             className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${tones[r.tone]} p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
           >
             <div className="flex items-start justify-between">
