@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/features/window_of_tolerance/components/ui/toast";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

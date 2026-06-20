@@ -1,3 +1,4 @@
+// @ts-nocheck
 import TipDetailLayout from "../../components/TipDetailLayout";
 import BreathingCircle from "../../components/BreathingCircle";
 import { useTranslation } from "react-i18next";

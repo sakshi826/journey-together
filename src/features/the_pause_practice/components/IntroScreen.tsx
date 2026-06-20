@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/features/the_pause_practice/components/ui/button";

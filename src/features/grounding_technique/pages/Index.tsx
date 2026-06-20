@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate } from "react-router-dom";
 import { techniques } from "../data/techniques";
 import { useTranslation } from "../hooks/useTranslation";

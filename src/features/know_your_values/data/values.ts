@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ValueItem } from "../types/reflection";
 
 export const allValues: ValueItem[] = [

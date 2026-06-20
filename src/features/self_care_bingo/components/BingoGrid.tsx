@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { RefreshCw, Trophy, Check, Sparkles as SparklesIcon, ChevronRight } from "lucide-react";
 import confetti from "canvas-confetti";

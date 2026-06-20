@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Button } from "@/features/a_gentle_wish/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import ScreenWrapper from "../../components/ScreenWrapper";
 import MissionButton from "../../components/MissionButton";

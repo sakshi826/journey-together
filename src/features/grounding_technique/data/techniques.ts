@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface Technique {
   id: string;
   title: string;

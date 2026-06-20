@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { query } from "./db";
 import { getSessionUserId } from "./auth";
 

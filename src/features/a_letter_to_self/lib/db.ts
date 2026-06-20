@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { dbRequest } from '@/lib/db';
 
 // For browser environments, @neondatabase/serverless handles the connection

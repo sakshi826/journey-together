@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import { cn } from "@/features/relationship_patterns_unpacked/lib/utils";

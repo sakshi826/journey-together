@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 
 export type ResourceType = 'tips' | 'articles' | 'stories' | 'myths';

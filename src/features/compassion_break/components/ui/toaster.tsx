@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/compassion_break/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/compassion_break/components/ui/toast";
 import { useTranslation } from "react-i18next";

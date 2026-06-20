@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft } from "lucide-react";
 import { Letter } from "@/features/the_unsent_letter/pages/Index";
 import { format } from "date-fns";

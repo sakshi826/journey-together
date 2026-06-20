@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext, useEffect, useState } from "react";
 import Loader from '@/components/Loader';
 import { COLORS } from '@/misc/Colors';

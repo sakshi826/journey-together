@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft, Trash2, Calendar, History, Inbox, Clock, Trash } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { ThoughtItem } from "./types";

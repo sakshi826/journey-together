@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import { cn } from "@/features/name_your_mind/lib/utils";

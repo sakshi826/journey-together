@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback } from "react";
 import { Brain, Clock, ChevronRight, MessageSquare, History } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";

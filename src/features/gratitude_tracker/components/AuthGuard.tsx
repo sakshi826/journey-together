@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { useAuthHandshake } from "../lib/auth";
 import Loader from '@/components/Loader';

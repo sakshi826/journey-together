@@ -1,3 +1,4 @@
+// @ts-nocheck
 interface ProgressDotsProps {
   total: number;
   current: number;

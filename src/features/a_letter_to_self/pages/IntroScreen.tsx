@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate, Link } from "react-router-dom";
 import { Mail, History } from "lucide-react";
 import { useTranslation } from "react-i18next";

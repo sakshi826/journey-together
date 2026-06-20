@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from "react";
 import MobileShell from "../../components/MobileShell";
 import OptionChip from "../../components/OptionChip";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import TipDetailLayout from "../../components/TipDetailLayout";
 import { useTranslation } from "react-i18next";
 

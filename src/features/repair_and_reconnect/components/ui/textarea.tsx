@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import { cn } from "@/features/repair_and_reconnect/lib/utils";

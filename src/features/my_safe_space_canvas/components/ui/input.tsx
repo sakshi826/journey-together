@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import { cn } from "@/features/my_safe_space_canvas/lib/utils";

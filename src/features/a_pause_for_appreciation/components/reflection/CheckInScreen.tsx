@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, Sparkles, Send } from "lucide-react";

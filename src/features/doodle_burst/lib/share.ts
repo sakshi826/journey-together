@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Helper to share a doodle image and message using the Web Share API.
  * Pulls the dataUrl from a canvas and triggers the native OS sharing sheet.

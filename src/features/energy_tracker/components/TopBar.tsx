@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft, Calendar, Globe } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";

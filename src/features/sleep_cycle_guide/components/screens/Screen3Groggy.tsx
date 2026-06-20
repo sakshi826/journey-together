@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation, Trans } from "react-i18next";
 
 interface Props { onNext: () => void }

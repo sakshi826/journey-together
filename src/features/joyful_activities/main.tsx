@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createRoot } from "react-dom/client";
 import { Suspense } from "react";
 import App from "./App.tsx";

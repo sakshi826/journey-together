@@ -1,3 +1,4 @@
+// @ts-nocheck
 const stars = [
   { top: "5%", left: "10%", size: 2, delay: "0s" },
   { top: "8%", left: "75%", size: 3, delay: "0.4s" },

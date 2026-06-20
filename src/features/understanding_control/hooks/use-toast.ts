@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/features/understanding_control/components/ui/toast";

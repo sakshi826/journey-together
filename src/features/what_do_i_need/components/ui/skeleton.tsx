@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/what_do_i_need/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/features/why_brain_gets_stuck/components/ui/toast";

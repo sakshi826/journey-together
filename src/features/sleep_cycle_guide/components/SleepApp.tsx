@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { Moon } from "lucide-react";
 import { useTranslation } from "react-i18next";

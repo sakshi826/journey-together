@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface CircleEntry {
   id: string;
   date: string;

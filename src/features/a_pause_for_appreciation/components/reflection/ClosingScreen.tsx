@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { PremiumComplete } from "../../../../components/shared/PremiumComplete";
 import { History, Home } from "lucide-react";

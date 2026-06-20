@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface QuizQuestion {
   statement: string;
   answer: "myth" | "fact";

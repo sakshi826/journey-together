@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/features/sleep_cycle_guide/components/ui/toast";

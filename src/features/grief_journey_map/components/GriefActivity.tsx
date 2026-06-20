@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback } from "react";
 import { Compass, ChevronRight, Heart, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";

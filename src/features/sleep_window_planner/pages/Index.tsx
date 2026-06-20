@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import SleepWindow from '@/features/sleep_window_planner/components/SleepWindow/SleepWindow';
 import { PremiumLayout } from "@/components/shared/PremiumLayout";

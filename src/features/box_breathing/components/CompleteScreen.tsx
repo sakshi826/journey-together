@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

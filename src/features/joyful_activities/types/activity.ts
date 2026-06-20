@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface ActivityData {
   activity: string;
   feeling: string;

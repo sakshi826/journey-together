@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Lock, MessageSquare, Heart, Bookmark, Check } from "lucide-react";

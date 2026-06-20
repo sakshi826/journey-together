@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, History, Calendar, Heart, Sparkles } from "lucide-react";

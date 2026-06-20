@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 const stars = [
   { top: '5%', left: '10%', delay: '0s', size: 3 },

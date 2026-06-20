@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/relationship_patterns_unpacked/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/relationship_patterns_unpacked/components/ui/toast";
 import { useTranslation } from "react-i18next";

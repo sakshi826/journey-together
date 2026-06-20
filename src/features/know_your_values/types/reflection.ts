@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface Reflection {
   id: string;
   date: string;

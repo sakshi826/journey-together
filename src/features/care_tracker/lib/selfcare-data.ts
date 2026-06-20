@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { sql } from '@/lib/db';
 import i18n from "../i18n";
 

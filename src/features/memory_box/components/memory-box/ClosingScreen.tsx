@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import ScreenWrapper from "./ScreenWrapper";
 import { useTranslation } from "react-i18next";

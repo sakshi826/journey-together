@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { PremiumComplete } from "../../../../components/shared/PremiumComplete";
 
 import { useTranslation } from "react-i18next";

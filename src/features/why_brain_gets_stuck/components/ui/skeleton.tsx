@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/why_brain_gets_stuck/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

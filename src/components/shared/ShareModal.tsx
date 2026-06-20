@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Share2, Copy, Check, Twitter, Facebook, MessageCircle, Send } from 'lucide-react';

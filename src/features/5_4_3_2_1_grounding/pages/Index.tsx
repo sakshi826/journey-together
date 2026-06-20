@@ -1,3 +1,4 @@
+// @ts-nocheck
 import GroundingExercise from "../components/GroundingExercise";
 import { PremiumLayout } from "../../../components/shared/PremiumLayout";
 

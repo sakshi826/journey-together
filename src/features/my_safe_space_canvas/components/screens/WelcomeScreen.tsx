@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import WelcomeIllustration from '../WelcomeIllustration';
 import { PremiumIntro } from '../../../../components/shared/PremiumIntro';

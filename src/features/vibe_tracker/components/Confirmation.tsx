@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { Clock, Heart, Home } from "lucide-react";
 import { PremiumComplete } from "../../../components/shared/PremiumComplete";

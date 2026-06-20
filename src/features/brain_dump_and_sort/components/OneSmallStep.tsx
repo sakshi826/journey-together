@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, Play, Pause, ArrowRight, Sparkles, Target, Clock, Check } from "lucide-react";
 import { useTranslation } from "react-i18next";

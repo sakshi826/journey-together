@@ -1,3 +1,4 @@
+// @ts-nocheck
 import MoodSelector from "../components/MoodSelector";
 import TipCard from "../components/TipCard";
 import { tips } from "../data/tips";

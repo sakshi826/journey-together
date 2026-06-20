@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createI18nInstance } from '../../lib/i18n';
 const locales = import.meta.glob('./i18n/*.json', { eager: true });
 

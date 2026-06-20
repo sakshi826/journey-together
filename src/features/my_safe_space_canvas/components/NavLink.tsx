@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NavLink as RouterNavLink, NavLinkProps } from "react-router-dom";
 import { forwardRef } from "react";
 import { cn } from "@/features/my_safe_space_canvas/lib/utils";

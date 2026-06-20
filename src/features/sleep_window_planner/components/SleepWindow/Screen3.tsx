@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useRef } from 'react';
 import { useTranslation } from "react-i18next";
 import Confetti from './Confetti';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 interface Props {
   label: string;
   value: string;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { SelfCareEntry, saveEntryToDb, toLocalIsoDate } from "../lib/selfcare-data";

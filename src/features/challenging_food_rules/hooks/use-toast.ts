@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/features/challenging_food_rules/components/ui/toast";

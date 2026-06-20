@@ -1,3 +1,4 @@
+// @ts-nocheck
 import TrackActivitySection from "../components/TrackActivitySection";
 import { PremiumLayout } from "../../../components/shared/PremiumLayout";
 

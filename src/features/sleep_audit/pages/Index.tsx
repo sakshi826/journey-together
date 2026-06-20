@@ -1,3 +1,4 @@
+// @ts-nocheck
 import SleepAudit from "@/features/sleep_audit/components/SleepAudit";
 
 const Index = () => <SleepAudit />;

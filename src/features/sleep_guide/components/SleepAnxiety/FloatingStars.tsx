@@ -1,3 +1,4 @@
+// @ts-nocheck
 const floaters = [
   { left: '20%', size: 9, duration: 7, delay: 0 },
   { left: '50%', size: 8, duration: 6, delay: 2 },

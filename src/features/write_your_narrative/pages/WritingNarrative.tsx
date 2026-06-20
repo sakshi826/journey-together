@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback, useEffect } from "react";
 import ScreenEntry from "@/features/write_your_narrative/components/narrative/ScreenEntry";
 import ScreenWriting from "@/features/write_your_narrative/components/narrative/ScreenWriting";

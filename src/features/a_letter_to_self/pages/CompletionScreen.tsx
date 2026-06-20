@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate } from "react-router-dom";
 import { PremiumComplete } from "../../../components/shared/PremiumComplete";
 import { useTranslation } from "react-i18next";

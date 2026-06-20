@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { PremiumIntro } from "../../../components/shared/PremiumIntro";

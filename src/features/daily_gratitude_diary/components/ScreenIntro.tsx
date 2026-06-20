@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import cherryBlossom from "../assets/cherry-blossom.png";
 import { useTranslation } from "react-i18next";

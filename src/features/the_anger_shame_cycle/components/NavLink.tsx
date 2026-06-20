@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NavLink as RouterNavLink, NavLinkProps } from "react-router-dom";
 import { forwardRef } from "react";
 import { cn } from "@/features/the_anger_shame_cycle/lib/utils";

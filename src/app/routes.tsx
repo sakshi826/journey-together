@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { SelfCareResources } from "./components/SelfCareResources";

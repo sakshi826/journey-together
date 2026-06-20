@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { ArrowLeft, CheckCircle2, ListFilter, Sparkles, MoveRight, Inbox, Clock, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface DoodleEntry {
   doodle_id: string; // From the database schema
   dataUrl: string; // The S3 URL

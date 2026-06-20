@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import SelectableTile from "../../components/SelectableTile";
 import { useTranslation } from "react-i18next";

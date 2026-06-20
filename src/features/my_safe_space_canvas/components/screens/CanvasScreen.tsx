@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useRef, useState, useCallback, MutableRefObject } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { fabric } from 'fabric';

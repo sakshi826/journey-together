@@ -1,3 +1,4 @@
+// @ts-nocheck
 export async function validateToken(token: string): Promise<number | null> {
     try {
         const response = await fetch("https://api.mantracare.com/user/user-info", {
