@@ -265,9 +265,19 @@ export function CoupleTherapyPage() {
 /* --------------------------------- TopBar --------------------------------- */
 
 function TopBar() {
+  const handleBack = () => {
+    if (typeof window !== "undefined") {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = "/";
+    }
+  };
   return (
     <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 pt-6 sm:px-8 sm:pt-8">
-      <button className="group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground">
+      <button
+        type="button"
+        onClick={handleBack}
+        className="group inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+      >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         Back
       </button>
