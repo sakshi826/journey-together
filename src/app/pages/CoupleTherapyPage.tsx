@@ -25,7 +25,7 @@ import {
   Brain,
   ChevronRight,
   X,
-  ExternalLink,
+  
   Loader2,
 } from "lucide-react";
 
