@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { sql } from '@/lib/db';

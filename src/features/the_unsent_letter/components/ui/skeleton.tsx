@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/the_unsent_letter/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

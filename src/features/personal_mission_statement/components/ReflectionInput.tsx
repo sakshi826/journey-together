@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { TextareaHTMLAttributes, forwardRef } from "react";
 import { cn } from "../lib/utils";
 

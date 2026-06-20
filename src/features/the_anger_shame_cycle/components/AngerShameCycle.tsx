@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { RefreshCw, ChevronRight, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";

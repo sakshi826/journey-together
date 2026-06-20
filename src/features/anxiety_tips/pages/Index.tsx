@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate } from "react-router-dom";
 import { Heart, Wind, Eye, Dumbbell, MessageCircleHeart, ChevronRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";

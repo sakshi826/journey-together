@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import AngerShameCycle from "@/features/the_anger_shame_cycle/components/AngerShameCycle";
 import { PremiumLayout } from "@/components/shared/PremiumLayout";

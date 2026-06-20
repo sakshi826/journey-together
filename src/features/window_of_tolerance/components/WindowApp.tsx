@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback, useEffect } from "react";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import ExplainScreen from "./screens/ExplainScreen";

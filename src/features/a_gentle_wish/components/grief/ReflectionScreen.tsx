@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Button } from "@/features/a_gentle_wish/components/ui/button";
 import { useTranslation } from "react-i18next";

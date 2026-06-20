@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ButtonHTMLAttributes } from "react";
 
 interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

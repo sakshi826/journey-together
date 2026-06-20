@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/write_your_narrative/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

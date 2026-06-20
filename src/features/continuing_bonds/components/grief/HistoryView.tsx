@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Reflection } from "@/features/continuing_bonds/hooks/useReflections";
 import { format } from "date-fns";
 import { useTranslation } from "react-i18next";

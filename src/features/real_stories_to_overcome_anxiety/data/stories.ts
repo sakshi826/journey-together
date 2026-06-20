@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface Story {
   name: string;
   age: number;

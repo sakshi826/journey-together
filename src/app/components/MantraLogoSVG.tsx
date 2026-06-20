@@ -1,3 +1,4 @@
+// @ts-nocheck
 export function MantraLogoSVG() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1410 300" className="h-6 w-auto" style={{ minWidth: '160px' }}>

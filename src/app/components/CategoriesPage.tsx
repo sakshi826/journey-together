@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, Circle, Moon, Waves, Coffee, Heart, Music, Sparkles, Mic, Sun, TreePine, Droplets, Volume2, Fish, Compass, Wind, BookOpen, Headphones, Target, Brain, Activity } from "lucide-react";

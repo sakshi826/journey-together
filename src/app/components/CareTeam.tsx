@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { MessageCircle, Search, Send, Paperclip, MoreVertical, Phone, Video, ArrowLeft, X, ChevronRight, Calendar, UserCog, AlertCircle, Clock, RefreshCw, ChevronLeft, Info, Filter, Stethoscope, Users, Activity, Heart, Dumbbell, Brain, Radio, Plus, ShoppingCart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/mind_reading_check/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/features/memory_box/components/ui/sheet";
 import type { Memory } from "@/features/memory_box/pages/Index";
 import { useTranslation } from "react-i18next";

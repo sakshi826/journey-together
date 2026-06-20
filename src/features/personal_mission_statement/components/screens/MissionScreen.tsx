@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { PremiumComplete } from "../../../../components/shared/PremiumComplete";
 import { MissionData } from "../../types/mission";

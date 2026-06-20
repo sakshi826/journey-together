@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 

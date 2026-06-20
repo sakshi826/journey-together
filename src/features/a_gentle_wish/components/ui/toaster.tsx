@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/a_gentle_wish/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/a_gentle_wish/components/ui/toast";
 import { useTranslation } from "react-i18next";

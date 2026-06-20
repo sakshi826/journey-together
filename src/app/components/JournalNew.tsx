@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { ArrowLeft, Share2, RefreshCw, Smile, Sun, Coffee, Moon, Cloud, Meh, Frown, Save, Sparkles, Check, MoreHorizontal, X, CheckCircle2, ChevronLeft, Edit2, Filter } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";

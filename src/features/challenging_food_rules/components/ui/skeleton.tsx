@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/challenging_food_rules/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

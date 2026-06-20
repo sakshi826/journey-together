@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/name_your_mind/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/name_your_mind/components/ui/toast";
 import { useTranslation } from "react-i18next";

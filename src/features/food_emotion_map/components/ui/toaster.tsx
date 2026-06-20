@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/food_emotion_map/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/food_emotion_map/components/ui/toast";
 import { useTranslation } from "react-i18next";

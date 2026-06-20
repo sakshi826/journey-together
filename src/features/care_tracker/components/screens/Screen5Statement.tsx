@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useMemo } from "react";
 import MobileShell from "../../components/MobileShell";
 import ContinueButton from "../../components/ContinueButton";

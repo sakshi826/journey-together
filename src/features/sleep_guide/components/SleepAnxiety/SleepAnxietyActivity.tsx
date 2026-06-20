@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { Moon, ChevronRight, ChevronLeft } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';

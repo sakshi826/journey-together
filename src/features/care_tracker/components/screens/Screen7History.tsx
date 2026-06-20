@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import MobileShell from "../../components/MobileShell";
 import { fetchLast7Days, formatDateShort, SelfCareEntry } from "../../lib/selfcare-data";

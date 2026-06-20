@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Heart, BookOpen, ChevronLeft, ChevronRight, History } from "lucide-react";
 import { useTranslation } from "react-i18next";

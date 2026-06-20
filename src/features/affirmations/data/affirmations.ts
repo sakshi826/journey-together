@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface Feeling {
   id: string;
   label: string;

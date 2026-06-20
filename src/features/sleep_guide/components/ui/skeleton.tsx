@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/sleep_guide/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

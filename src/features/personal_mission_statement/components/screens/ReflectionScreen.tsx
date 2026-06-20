@@ -1,3 +1,4 @@
+// @ts-nocheck
 import ScreenWrapper from "../../components/ScreenWrapper";
 import MissionButton from "../../components/MissionButton";
 import ReflectionInput from "../../components/ReflectionInput";

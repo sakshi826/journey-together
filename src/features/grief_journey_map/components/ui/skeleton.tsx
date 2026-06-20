@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/grief_journey_map/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

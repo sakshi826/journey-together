@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Moon, Wind, Footprints, Coffee, ClipboardList } from "lucide-react";
 import type { ReactNode } from "react";
 

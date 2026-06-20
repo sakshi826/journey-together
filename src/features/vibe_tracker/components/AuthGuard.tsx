@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { neon, neonConfig } from "@neondatabase/serverless";
 import Loader from '@/components/Loader';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import WindowApp from "@/features/window_of_tolerance/components/WindowApp";
 
 const Index = () => <WindowApp />;

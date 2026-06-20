@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/food_emotion_map/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

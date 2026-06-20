@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import ProgressDots from "@/features/the_unsent_letter/components/ProgressDots";

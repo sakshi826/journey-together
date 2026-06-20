@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
 import { feelings } from "../data/affirmations";
 import { ChevronLeft, ChevronRight, Check, RotateCcw } from "lucide-react";

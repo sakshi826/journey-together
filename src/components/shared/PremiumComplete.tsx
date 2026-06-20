@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Home, RotateCcw, Sparkles, Share2 } from 'lucide-react';

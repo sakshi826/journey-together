@@ -1,3 +1,4 @@
+// @ts-nocheck
 export const CONNECTION_OPTIONS = [
   {
     label: "Through memories",

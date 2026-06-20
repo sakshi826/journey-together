@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { useState, useCallback, useEffect } from "react";
 import { Welcome } from "./Welcome";

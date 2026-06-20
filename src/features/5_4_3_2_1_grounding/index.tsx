@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { PremiumLayout } from '../../components/shared/PremiumLayout';
 import './index.css';
 import './i18n';

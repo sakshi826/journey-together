@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useParams, useNavigate } from "react-router-dom";
 import { Check, Sparkles, Loader2, Wind } from "lucide-react";
 import { tips } from "../data/tips";

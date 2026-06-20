@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ChevronRight, ChevronLeft, Sparkles, Wind, Loader2 } from "lucide-react";

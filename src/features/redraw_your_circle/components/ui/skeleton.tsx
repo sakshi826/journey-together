@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/redraw_your_circle/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

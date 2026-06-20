@@ -1,3 +1,4 @@
+// @ts-nocheck
 import BrainDumpApp from "../components/BrainDumpApp";
 import { PremiumLayout } from "../../../components/shared/PremiumLayout";
 

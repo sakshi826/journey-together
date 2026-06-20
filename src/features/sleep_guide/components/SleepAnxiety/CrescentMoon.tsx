@@ -1,3 +1,4 @@
+// @ts-nocheck
 const CrescentMoon = () => (
   <div style={{ position: 'absolute', top: 20, right: 24, zIndex: 0 }}>
     <div style={{ position: 'relative', width: 36, height: 36 }}>

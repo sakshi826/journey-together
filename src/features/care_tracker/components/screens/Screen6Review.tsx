@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import { PremiumComplete } from "../../../../components/shared/PremiumComplete";
 

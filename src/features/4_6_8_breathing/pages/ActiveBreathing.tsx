@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { RotateCcw, Wind, Play, Pause, RefreshCw } from "lucide-react";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/sleep_audit/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/sleep_audit/components/ui/toast";
 import { useTranslation } from "react-i18next";

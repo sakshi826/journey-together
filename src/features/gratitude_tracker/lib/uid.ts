@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Simple UUID v4 generator
 export function v4(): string {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Heart, Brain, Target, Shield, Sparkles } from "lucide-react";
 

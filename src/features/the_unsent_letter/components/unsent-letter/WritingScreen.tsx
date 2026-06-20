@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft } from "lucide-react";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";

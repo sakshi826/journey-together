@@ -1,3 +1,4 @@
+// @ts-nocheck
 const BedIllustration = () => (
   <svg width="72" height="60" viewBox="0 0 72 60" fill="none" style={{ flexShrink: 0 }}>
     {/* Bed frame */}

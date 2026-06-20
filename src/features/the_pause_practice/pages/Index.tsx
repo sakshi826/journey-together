@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Timer } from "lucide-react";

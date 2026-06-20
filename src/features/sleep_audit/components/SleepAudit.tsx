@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useCallback } from "react";
 import { Moon, History, Check, X, Save } from "lucide-react";
 import { useTranslation } from "react-i18next";

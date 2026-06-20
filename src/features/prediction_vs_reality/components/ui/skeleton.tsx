@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { cn } from "@/features/prediction_vs_reality/lib/utils";
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

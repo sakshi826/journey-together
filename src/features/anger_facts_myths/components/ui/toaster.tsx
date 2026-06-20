@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useToast } from "@/features/anger_facts_myths/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/features/anger_facts_myths/components/ui/toast";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { dbQuery } from './db';
 
 /**

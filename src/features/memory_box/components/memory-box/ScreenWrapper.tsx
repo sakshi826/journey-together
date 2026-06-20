@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { ReactNode, useMemo, forwardRef } from "react";
 

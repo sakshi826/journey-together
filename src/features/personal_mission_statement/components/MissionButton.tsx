@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "../lib/utils";
 

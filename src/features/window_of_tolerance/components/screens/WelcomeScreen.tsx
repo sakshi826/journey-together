@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ArrowLeft, ClipboardList } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

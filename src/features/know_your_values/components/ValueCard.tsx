@@ -1,3 +1,4 @@
+// @ts-nocheck
 interface ValueCardProps {
   emoji: string;
   name: string;

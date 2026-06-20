@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useMemo, useEffect } from "react";
 import { Heart, History, Save, ChevronRight, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";

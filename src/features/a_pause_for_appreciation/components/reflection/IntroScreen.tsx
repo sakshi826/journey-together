@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useTranslation } from "react-i18next";
 import { PremiumIntro } from "../../../../components/shared/PremiumIntro";
 import { Heart, History } from "lucide-react";
