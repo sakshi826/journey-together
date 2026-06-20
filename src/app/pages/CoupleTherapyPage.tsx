@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, createContext, useContext, useCallback } from "react";
 import {
   Heart,
   HandHeart,
@@ -24,7 +24,113 @@ import {
   Lightbulb,
   Brain,
   ChevronRight,
+  X,
+  ExternalLink,
+  Loader2,
 } from "lucide-react";
+
+/* --------------------- Activity Frame (iframe modal) --------------------- */
+
+type FrameTarget = { title: string; url: string } | null;
+const ActivityFrameCtx = createContext<{ open: (t: NonNullable<FrameTarget>) => void }>({
+  open: () => {},
+});
+export const useActivityFrame = () => useContext(ActivityFrameCtx);
+
+function ActivityFrameProvider({ children }: { children: React.ReactNode }) {
+  const [target, setTarget] = useState<FrameTarget>(null);
+  const [loading, setLoading] = useState(false);
+
+  const open = useCallback((t: NonNullable<FrameTarget>) => {
+    setLoading(true);
+    setTarget(t);
+  }, []);
+  const close = useCallback(() => setTarget(null), []);
+
+  useEffect(() => {
+    if (!target) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [target, close]);
+
+  return (
+    <ActivityFrameCtx.Provider value={{ open }}>
+      {children}
+      {target && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label={target.title}
+        >
+          <button
+            aria-label="Close"
+            onClick={close}
+            className="absolute inset-0 bg-gradient-to-br from-[#A2347A]/70 via-[#D9468B]/60 to-[#F48FB1]/60 backdrop-blur-md"
+          />
+          <div className="relative flex h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-white/40 bg-white shadow-2xl ring-1 ring-black/5">
+            <div
+              className="relative flex items-center gap-3 px-5 py-4 sm:px-7"
+              style={{
+                background:
+                  "linear-gradient(135deg, #FFF1F7 0%, #FFE3EE 50%, #FFD3E4 100%)",
+              }}
+            >
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/80 text-[#A2347A] ring-1 ring-[#A2347A]/15">
+                <Heart className="h-5 w-5" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#A2347A]/70">
+                  Relationship Activity
+                </p>
+                <h3 className="truncate font-display text-base text-foreground sm:text-lg">
+                  {target.title}
+                </h3>
+              </div>
+              <a
+                href={target.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-xs font-medium text-[#A2347A] ring-1 ring-[#A2347A]/15 transition hover:bg-white sm:inline-flex"
+              >
+                Open in new tab <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <button
+                onClick={close}
+                aria-label="Close activity"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-foreground ring-1 ring-black/5 transition hover:bg-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="relative flex-1 bg-[#FFF7FB]">
+              {loading && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 text-[#A2347A]">
+                  <Loader2 className="h-7 w-7 animate-spin" />
+                  <p className="text-sm font-medium">Loading activity…</p>
+                </div>
+              )}
+              <iframe
+                key={target.url}
+                src={target.url}
+                title={target.title}
+                onLoad={() => setLoading(false)}
+                className="h-full w-full border-0"
+                allow="clipboard-write; fullscreen"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </ActivityFrameCtx.Provider>
+  );
+}
 
 /* ---------------------------------- Page ---------------------------------- */
 
@@ -68,6 +174,7 @@ export function CoupleTherapyPage() {
   const scrollY = useParallaxScroll();
 
   return (
+    <ActivityFrameProvider>
     <div
       className="group/page min-h-screen relative overflow-hidden font-sans"
       style={{
@@ -159,6 +266,7 @@ export function CoupleTherapyPage() {
         </main>
       </div>
     </div>
+    </ActivityFrameProvider>
   );
 }
 
@@ -240,13 +348,22 @@ function ActivityCard({
   tone: Tone;
   href?: string;
 }) {
-  const isExternal = href.startsWith("http");
+  const isMantra = /app\.mantracare\.org/.test(href);
+  const isExternal = href.startsWith("http") && !isMantra;
+  const { open } = useActivityFrame();
+  const onClick = (e: React.MouseEvent) => {
+    if (isMantra) {
+      e.preventDefault();
+      open({ title, url: href });
+    }
+  };
   return (
     <a
       href={href}
+      onClick={onClick}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30"
+      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
     >
       <span
         aria-hidden
@@ -285,13 +402,22 @@ function AlignmentCard({
   tone: Tone;
   href?: string;
 }) {
-  const isExternal = href.startsWith("http");
+  const isMantra = /app\.mantracare\.org/.test(href);
+  const isExternal = href.startsWith("http") && !isMantra;
+  const { open } = useActivityFrame();
+  const onClick = (e: React.MouseEvent) => {
+    if (isMantra) {
+      e.preventDefault();
+      open({ title, url: href });
+    }
+  };
   return (
     <a
       href={href}
+      onClick={onClick}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group relative flex gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30"
+      className="group relative flex gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
     >
       <span
         aria-hidden
