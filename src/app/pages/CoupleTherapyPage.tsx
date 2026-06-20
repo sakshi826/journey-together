@@ -266,6 +266,7 @@ export function CoupleTherapyPage() {
         </main>
       </div>
     </div>
+    </ActivityFrameProvider>
   );
 }
 
