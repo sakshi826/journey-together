@@ -1,48 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Heart,
-  HeartHandshake,
-  MessageCircle,
-  ShieldCheck,
-  Compass,
-  Star,
-  TrendingUp,
-  BookOpen,
-  Lightbulb,
-  Brain,
-  ChevronRight,
-  Sparkles,
-  Users,
-  Target,
-  Scale,
-  Baby,
-  RefreshCcw,
-  HandHeart,
-  Wrench,
-  Mail,
-  PenLine,
-  UserMinus,
-  Flame as FlameIcon,
-  UserX,
-  Crosshair,
-  CircleDot,
-} from "lucide-react";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Couple Therapy: A Guided Relationship Journey" },
-      {
-        name: "description",
-        content:
-          "Therapist-guided tools, pathways, and insights to deepen connection, communication, and emotional intimacy together.",
-      },
-    ],
-  }),
-  component: CoupleTherapyPage,
+  beforeLoad: () => {
+    throw redirect({ to: "/couple_module/" });
+  },
 });
 
 /* ---------------------------------- Page ---------------------------------- */
