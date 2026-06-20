@@ -1,70 +1,29 @@
-@import "tailwindcss";
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+:root {
+  --background-end: 190 100% 95%;
+  --gradient-primary: linear-gradient(135deg, hsl(190, 82%, 68%), hsl(190, 82%, 62%));
+  --shadow-card: 0px 8px 20px rgba(0, 0, 0, 0.04);
+  --sidebar-foreground: 215 15% 30%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 215 15% 96%;
+  --sidebar-accent-foreground: 215 15% 10%;
+  --sidebar-border: 215 15% 92%;
+  --sidebar-ring: 190 60% 65%;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-
-
-@layer base {
-  :root {
-    --background-end: 190 100% 95%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(190, 82%, 68%), hsl(190, 82%, 62%));
-    --shadow-card: 0px 8px 20px rgba(0, 0, 0, 0.04);
-
-    --sidebar-foreground: 215 15% 30%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 215 15% 96%;
-    --sidebar-accent-foreground: 215 15% 10%;
-    --sidebar-border: 215 15% 92%;
-    --sidebar-ring: 190 60% 65%;
-  }
-
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
 }
 
-@layer base {
-  
-
-  body {
-    
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    
-  }
+.text-justified {
+  text-align: justify;
 }
 
-@layer utilities {
-  .text-justified {
-    text-align: justify;
-  }
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
 
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .gradient-button {
-    background: linear-gradient(135deg, #2D9CDB 0%, #2185C5 100%);
-    box-shadow: 0 4px 15px rgba(45, 156, 219, 0.2);
-  }
+.gradient-button {
+  background: linear-gradient(135deg, #2D9CDB 0%, #2185C5 100%);
+  box-shadow: 0 4px 15px rgba(45, 156, 219, 0.2);
 }

@@ -2,6 +2,7 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { SelfCareResources } from "./components/SelfCareResources";
+import { CoupleTherapyPage } from "./pages/CoupleTherapyPage";
 import { StaticContentViewer } from "../components/StaticContentViewer";
 import { AuthGuard } from "../components/AuthGuard";
 import { useTranslation } from "react-i18next";
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     children: [
-      { index: true, element: <SelfCareResources /> },
+      { index: true, element: <CoupleTherapyPage /> },
       { path: "topics/:topicId", element: <SelfCareResources /> },
       { path: "guided-series/:concern", element: withLoading(<GuidedSeries />) },
       { path: "guided-series/:concern/:activityName", element: withLoading(<GuidedActivity />) },
@@ -72,8 +73,8 @@ export const router = createBrowserRouter([
           { path: "exercises/diffusion-technique/*", element: withLoading(<DiffusionTechnique />) },
           { path: "tools/know-your-values/*", element: withLoading(<KnowYourValues />) },
           { path: "trackers/gratitude-tracker/*", element: withLoading(<GratitudeTracker />) },
-          { path: "trackers/care-tracker/*", element: withLoading(<CareTracker />) },
-          { path: "tools/personal-mission-statement/*", element: withLoading(<PersonalMissionStatement />) },
+          { path: "trackers/relationship-connection-tracker/*", element: withLoading(<CareTracker />) },
+          { path: "tools/shared-relationship-vision/*", element: withLoading(<PersonalMissionStatement />) },
           { path: "resources/:concern/:type/*", element: withLoading(<Resources />) },
           { path: "tools/relationship-patterns-unpacked/*", element: withLoading(<RelationshipPatternsUnpacked />) },
           { path: "tools/redraw-your-circle/*", element: withLoading(<RedrawYourCircle />) },

@@ -124,8 +124,8 @@ const prefetchTool = (id: string) => {
     "affirmations": () => import("../../features/affirmations"),
     "know-your-values": () => import("../../features/know_your_values"),
     "gratitude-tracker": () => import("../../features/gratitude_tracker"),
-    "care-tracker": () => import("../../features/care_tracker"),
-    "personal-mission-statement": () => import("../../features/personal_mission_statement"),
+    "relationship-connection-tracker": () => import("../../features/care_tracker"),
+    "shared-relationship-vision": () => import("../../features/personal_mission_statement"),
   };
   if (prefetchMap[id]) prefetchMap[id]();
 };
@@ -326,31 +326,31 @@ function RelationshipTools({ onHover }: { onHover: (href: string) => void }) {
   const toolsList: { icon: React.ReactNode; title: string; desc: string; tone: Tone; href: string }[] = [
     {
       icon: <Heart className="h-5 w-5" />,
-      title: "Relationship Check-In",
+      title: "Relationship Values Check-In",
       desc: "Track emotional connection and satisfaction together.",
       tone: "rose",
-      href: "/guided-series/relationship",
+      href: "/couple_module/tools/know-your-values",
     },
     {
       icon: <Star className="h-5 w-5" />,
       title: "Daily Appreciation Practice",
       desc: "Build the habit of noticing and naming the good.",
       tone: "sand",
-      href: "/trackers/a-pause-for-appreciation",
+      href: "/couple_module/trackers/gratitude-tracker",
     },
     {
       icon: <TrendingUp className="h-5 w-5" />,
-      title: "Connection Tracker",
+      title: "Relationship Connection Tracker",
       desc: "Monitor closeness, intimacy, and warmth over time.",
       tone: "sage",
-      href: "/trackers/care-tracker",
+      href: "/couple_module/trackers/relationship-connection-tracker",
     },
     {
       icon: <Compass className="h-5 w-5" />,
-      title: "Shared Vision Builder",
+      title: "Shared Relationship Vision",
       desc: "Align your future goals, values, and dreams.",
       tone: "lavender",
-      href: "/tools/personal-mission-statement",
+      href: "/couple_module/tools/shared-relationship-vision",
     },
   ];
 
