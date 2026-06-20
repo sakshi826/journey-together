@@ -102,6 +102,13 @@ function ActivityFrameProvider({ children }: { children: React.ReactNode }) {
               </button>
             </div>
             <div className="relative flex-1 bg-[#FFF7FB]">
+              <button
+                type="button"
+                aria-label="Back to relationship activities"
+                title="Back to relationship activities"
+                onClick={close}
+                className="absolute left-4 top-4 z-20 h-12 w-12 rounded-xl bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A2347A] sm:left-5 sm:top-5"
+              />
               {loading && (
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 text-[#A2347A]">
                   <Loader2 className="h-7 w-7 animate-spin" />
