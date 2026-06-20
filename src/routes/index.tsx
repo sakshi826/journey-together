@@ -275,9 +275,12 @@ function ActivityCard({
   tone: Tone;
   href?: string;
 }) {
+  const isExternal = href.startsWith("http");
   return (
     <a
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
       {/* Focus glow halo */}
@@ -319,9 +322,12 @@ function AlignmentCard({
   tone: Tone;
   href?: string;
 }) {
+  const isExternal = href.startsWith("http");
   return (
     <a
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative flex gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
       <span
@@ -362,28 +368,28 @@ function EmotionalConnection() {
       title: "Emotional Check-In Ritual",
       desc: "A daily moment to share what you're feeling and what you need.",
       tone: "rose",
-      href: "/couple_module/guided-series/relationship",
+      href: "https://app.mantracare.org/couple/emotional-connection-t1/",
     },
     {
       icon: <HandHeart className="h-5 w-5" />,
       title: "Forgiveness Corner and Apology Exchange",
       desc: "Offer and receive heartfelt apologies in a safe, guided space.",
       tone: "lavender",
-      href: "/couple_module/tools/repair-and-reconnect",
+      href: "https://app.mantracare.org/couple/forgiveness-t2/",
     },
     {
       icon: <RefreshCcw className="h-5 w-5" />,
       title: "Rupture and Repair Work",
       desc: "Move through hard moments together and come back closer.",
       tone: "sage",
-      href: "/couple_module/tools/repair-and-reconnect",
+      href: "https://app.mantracare.org/couple/repair-t1/",
     },
     {
       icon: <ShieldCheck className="h-5 w-5" />,
       title: "Trust Rebuilding Repair Plan",
       desc: "A step-by-step plan to restore safety and rebuild trust.",
       tone: "sand",
-      href: "/couple_module/tools/repair-and-reconnect",
+      href: "https://app.mantracare.org/couple/trust-t4/",
     },
   ];
   return (
@@ -409,28 +415,28 @@ function CommunicationAlignment() {
       title: "Conflict Reframing Exercise",
       desc: "Turn recurring arguments into shared understanding.",
       tone: "sage",
-      href: "/couple_module/exercises/diffusion-technique",
+      href: "https://app.mantracare.org/couple/conflict-t1/",
     },
     {
       icon: <Compass className="h-5 w-5" />,
       title: "Goals and Dreams Alignment",
       desc: "Map the future you both want and the steps to get there.",
       tone: "lavender",
-      href: "/couple_module/tools/personal-mission-statement",
+      href: "https://app.mantracare.org/couple/pre-marital-t1/",
     },
     {
       icon: <Scale className="h-5 w-5" />,
       title: "Money Values and Goal Alignment",
       desc: "Align on spending, saving, and financial priorities together.",
       tone: "sand",
-      href: "/couple_module/tools/know-your-values",
+      href: "https://app.mantracare.org/couple/money-t1/",
     },
     {
       icon: <Baby className="h-5 w-5" />,
       title: "Co-Parenting Alignment Matrix",
       desc: "Build a united approach to parenting decisions and routines.",
       tone: "rose",
-      href: "/couple_module/guided-series/parenting",
+      href: "https://app.mantracare.org/couple/parenting-together-t4/",
     },
   ];
 
