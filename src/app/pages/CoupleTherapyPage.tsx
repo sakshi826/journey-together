@@ -402,7 +402,6 @@ function AlignmentCard({
   href?: string;
 }) {
   const isMantra = /app\.mantracare\.org/.test(href);
-  const isExternal = href.startsWith("http") && !isMantra;
   const { open } = useActivityFrame();
   const onClick = (e: React.MouseEvent) => {
     if (isMantra) {
@@ -414,8 +413,6 @@ function AlignmentCard({
     <a
       href={href}
       onClick={onClick}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
       className="group relative flex gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
     >
       <span
