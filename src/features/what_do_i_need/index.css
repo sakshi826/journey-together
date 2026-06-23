@@ -1,4 +1,4 @@
-:root {
+.couple-module-container.feature-what-do-i-need {
   --background: 30 25% 96%;
   --foreground: 20 8% 18%;
 
@@ -53,14 +53,11 @@
   --sidebar-accent-foreground: 240 5.9% 10%;
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 217.2 91.2% 59.8%;
+  font-family: 'DM Sans', sans-serif;
 }
 
 * {
   border-color: hsl(var(--border));
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
 }
 
 .chip-base {

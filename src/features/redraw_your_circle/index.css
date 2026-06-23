@@ -1,4 +1,4 @@
-:root {
+.couple-module-container.feature-redraw-your-circle {
   --background: 30 25% 96%;
   --foreground: 20 10% 16%;
 
@@ -52,7 +52,7 @@
   border-color: hsl(var(--border));
 }
 
-body {
+.couple-module-container.feature-redraw-your-circle {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
 }

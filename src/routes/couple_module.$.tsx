@@ -27,7 +27,7 @@ function CoupleModulePage() {
   }
 
   return (
-    <div className="couple-module-container min-h-screen bg-[#F6F8FB]">
+    <div className="min-h-screen bg-transparent">
       <Suspense fallback={
         <div className="flex min-h-screen flex-col items-center justify-center bg-[#F8FAFC]">
           <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-200 border-t-primary" />

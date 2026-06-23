@@ -1,4 +1,4 @@
-:root {
+.couple-module-container.feature-a-letter-to-self {
   --prompt-card: 222 43% 95%;
   --prompt-card-foreground: 0 0% 17%;
 
@@ -10,7 +10,8 @@
   --sidebar-ring: 190 60% 65%;
 }
 
-.dark {
+.dark .couple-module-container.feature-a-letter-to-self,
+.couple-module-container.feature-a-letter-to-self.dark {
   --prompt-card: 222 43% 95%;
   --prompt-card-foreground: 0 0% 17%;
 }

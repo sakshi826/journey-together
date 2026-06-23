@@ -1,4 +1,4 @@
-:root {
+.couple-module-container.feature-repair-and-reconnect {
   --background: 240 20% 96%;
   --foreground: 0 0% 18%;
 
@@ -50,7 +50,7 @@
   border-color: hsl(var(--border));
 }
 
-body {
+.couple-module-container.feature-repair-and-reconnect {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 

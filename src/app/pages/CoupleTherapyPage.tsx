@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, createContext, useContext, useCallback } from "react";
+import { Link } from "react-router-dom";
 import {
   Heart,
   HandHeart,
@@ -344,6 +345,35 @@ const toneRing: Record<Tone, string> = {
   sky: "ring-sky/40",
 };
 
+function CardLink({
+  href,
+  onClick,
+  children,
+  className,
+}: {
+  href: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const isExternal = href.startsWith("http") || href.startsWith("https");
+  if (isExternal) {
+    return (
+      <a href={href} onClick={onClick} className={`${className || ""} no-underline`}>
+        {children}
+      </a>
+    );
+  }
+  const cleanHref = href.startsWith("/couple_module")
+    ? href.replace("/couple_module", "")
+    : href;
+  return (
+    <Link to={cleanHref} onClick={onClick} className={`${className || ""} no-underline`}>
+      {children}
+    </Link>
+  );
+}
+
 function ActivityCard({
   icon,
   title,
@@ -366,10 +396,10 @@ function ActivityCard({
     }
   };
   return (
-    <a
+    <CardLink
       href={href}
       onClick={onClick}
-      className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
+      className="group relative flex flex-col overflow-hidden rounded-3xl bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
     >
       <span
         aria-hidden
@@ -391,7 +421,7 @@ function ActivityCard({
       <p className="relative mt-1 flex-1 text-sm leading-relaxed text-foreground">
         {desc}
       </p>
-    </a>
+    </CardLink>
   );
 }
 
@@ -417,10 +447,10 @@ function AlignmentCard({
     }
   };
   return (
-    <a
+    <CardLink
       href={href}
       onClick={onClick}
-      className="group relative flex gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
+      className="group relative flex gap-4 overflow-hidden rounded-2xl bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
     >
       <span
         aria-hidden
@@ -448,7 +478,7 @@ function AlignmentCard({
           {desc}
         </p>
       </div>
-    </a>
+    </CardLink>
   );
 }
 
@@ -670,9 +700,9 @@ function SeriesRow({
   href?: string;
 }) {
   return (
-    <a
+    <CardLink
       href={href}
-      className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-card hover:ring-1 hover:ring-primary/30"
+      className="group relative flex items-center gap-4 overflow-hidden rounded-xl bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
       <span
         aria-hidden
@@ -700,7 +730,7 @@ function SeriesRow({
         </div>
       </div>
       <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
-    </a>
+    </CardLink>
   );
 }
 
@@ -761,10 +791,10 @@ function RelationshipTools() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           {tools.map((t) => (
-            <a
+            <CardLink
               key={t.title}
-              href={t.href}
-              className={`group relative isolate overflow-hidden rounded-[28px] border border-border bg-gradient-to-br ${toneGradients[t.tone]} p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7 block`}
+              href={t.href || "#"}
+              className={`group relative isolate overflow-hidden rounded-[28px] bg-gradient-to-br ${toneGradients[t.tone]} p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7 block`}
             >
               <span
                 aria-hidden
@@ -782,7 +812,7 @@ function RelationshipTools() {
                     {t.icon}
                   </div>
                 </div>
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-semibold text-background transition-transform group-hover:scale-105">
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-transform group-hover:scale-105">
                   Start <ArrowRight className="h-3.5 w-3.5" />
                 </div>
               </div>
@@ -792,7 +822,7 @@ function RelationshipTools() {
               <p className="mt-1 text-sm leading-relaxed text-foreground">
                 {t.desc}
               </p>
-            </a>
+            </CardLink>
           ))}
         </div>
       </div>
@@ -849,10 +879,10 @@ function ResourceLibrary() {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         {resources.map((r) => (
-          <a
+          <CardLink
             key={r.title}
             href={r.href}
-            className={`group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${tones[r.tone]} p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
+            className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${tones[r.tone]} p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
           >
             <div className="flex items-start justify-between">
               <div
@@ -868,7 +898,7 @@ function ResourceLibrary() {
               Explore{" "}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </div>
-          </a>
+          </CardLink>
         ))}
       </div>
     </Section>
