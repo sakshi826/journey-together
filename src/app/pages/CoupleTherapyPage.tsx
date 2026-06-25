@@ -399,11 +399,25 @@ function ActivityCard({
     <CardLink
       href={href}
       onClick={onClick}
-      className="group relative flex flex-col overflow-hidden rounded-3xl bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
+      className="group relative flex flex-col overflow-hidden rounded-3xl bg-white/70 backdrop-blur-xl p-6 ring-1 ring-white/60 shadow-[0_10px_40px_-18px_rgba(162,52,122,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_60px_-20px_rgba(162,52,122,0.45)] hover:ring-[#A2347A]/30 cursor-pointer"
     >
+      {/* top inner highlight */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent"
+      />
+      {/* hover sheen */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,0.6) 0%, transparent 50%), radial-gradient(120% 80% at 100% 100%, rgba(255,210,232,0.45) 0%, transparent 55%)",
+        }}
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
             "radial-gradient(closest-side, rgba(255,255,255,0.7), rgba(255,210,232,0.35) 55%, transparent 80%)",
@@ -411,14 +425,16 @@ function ActivityCard({
       />
       <div className="relative flex items-start justify-between">
         <div
-          className={`inline-flex h-14 w-14 items-center justify-center rounded-full ring-8 ${toneRing[tone]} ${toneStyles[tone]}`}
+          className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl ring-1 ring-white/70 shadow-[0_8px_20px_-8px_rgba(162,52,122,0.35)] ${toneStyles[tone]}`}
         >
           {icon}
         </div>
-        <ArrowRight className="mt-2 h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-foreground" />
+        <span className="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/80 ring-1 ring-white/70 text-foreground/70 transition-all duration-300 group-hover:bg-foreground group-hover:text-white group-hover:translate-x-0.5">
+          <ArrowRight className="h-4 w-4" />
+        </span>
       </div>
-      <h4 className="relative mt-6 font-display text-lg text-foreground">{title}</h4>
-      <p className="relative mt-1 flex-1 text-sm leading-relaxed text-foreground">
+      <h4 className="relative mt-6 font-display text-lg text-foreground tracking-tight">{title}</h4>
+      <p className="relative mt-1.5 flex-1 text-sm leading-relaxed text-foreground/85">
         {desc}
       </p>
     </CardLink>
