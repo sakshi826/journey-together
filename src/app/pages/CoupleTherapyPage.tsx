@@ -672,20 +672,22 @@ function GuidedSeries() {
       title="Guided Series"
       desc="Therapist-led journeys grouped by what you and your partner are working through."
     >
-      <div className="space-y-10">
-        {groups.map((g) => (
-          <div key={g.heading}>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-black">
-              {g.heading}
-            </h3>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((i) => (
-                <SeriesRow key={i.title} {...i} />
-              ))}
+      <LoadingReveal skeleton={<SeriesSkeletonGroup />} delay={750}>
+        <div className="space-y-10">
+          {groups.map((g) => (
+            <div key={g.heading}>
+              <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-black">
+                {g.heading}
+              </h3>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {g.items.map((i) => (
+                  <SeriesRow key={i.title} {...i} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </LoadingReveal>
     </Section>
   );
 }
