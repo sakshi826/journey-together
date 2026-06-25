@@ -795,42 +795,44 @@ function RelationshipTools() {
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {tools.map((t) => (
-            <CardLink
-              key={t.title}
-              href={t.href || "#"}
-              className={`group relative isolate overflow-hidden rounded-[28px] bg-gradient-to-br ${toneGradients[t.tone]} p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7 block`}
-            >
-              <span
-                aria-hidden
-                className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
-              />
-              <div className="flex items-start justify-between">
-                <div className="relative">
-                  <span
-                    aria-hidden
-                    className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
-                  />
-                  <div
-                    className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl shadow-soft ${toneIconCard[t.tone]}`}
-                  >
-                    {t.icon}
+        <LoadingReveal skeleton={<CardSkeletonGrid count={4} height="h-48" rounded="rounded-[28px]" />} delay={400}>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {tools.map((t) => (
+              <CardLink
+                key={t.title}
+                href={t.href || "#"}
+                className={`group relative isolate overflow-hidden rounded-[28px] bg-gradient-to-br ${toneGradients[t.tone]} p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-card sm:p-7 block`}
+              >
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full ${toneBlob[t.tone]} blur-3xl`}
+                />
+                <div className="flex items-start justify-between">
+                  <div className="relative">
+                    <span
+                      aria-hidden
+                      className={`absolute inset-0 -m-1 rounded-2xl ${toneStripe[t.tone]} opacity-20 blur-md`}
+                    />
+                    <div
+                      className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl shadow-soft ${toneIconCard[t.tone]}`}
+                    >
+                      {t.icon}
+                    </div>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-transform group-hover:scale-105">
+                    Start <ArrowRight className="h-3.5 w-3.5" />
                   </div>
                 </div>
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-white transition-transform group-hover:scale-105">
-                  Start <ArrowRight className="h-3.5 w-3.5" />
-                </div>
-              </div>
-              <h4 className="mt-6 font-display text-xl text-foreground">
-                {t.title}
-              </h4>
-              <p className="mt-1 text-sm leading-relaxed text-foreground">
-                {t.desc}
-              </p>
-            </CardLink>
-          ))}
-        </div>
+                <h4 className="mt-6 font-display text-xl text-foreground">
+                  {t.title}
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-foreground">
+                  {t.desc}
+                </p>
+              </CardLink>
+            ))}
+          </div>
+        </LoadingReveal>
       </div>
     </section>
   );
