@@ -780,11 +780,15 @@ function RelationshipTools() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="mb-8 flex flex-col gap-1 sm:mb-10">
-          <h2 className="font-display text-3xl text-foreground sm:text-4xl">
+        <div className="mb-8 flex flex-col gap-2 sm:mb-10">
+          <div className="flex items-center gap-3">
+            <span aria-hidden className="h-px w-10 bg-gradient-to-r from-[#A2347A] to-transparent" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#A2347A]">Daily Practices</span>
+          </div>
+          <h2 className="font-display text-[32px] leading-[1.05] tracking-[-0.025em] text-foreground sm:text-[44px]">
             Relationship Tools
           </h2>
-          <p className="mt-1 max-w-2xl text-sm leading-relaxed text-foreground">
+          <p className="max-w-2xl pl-[52px] text-[15px] leading-relaxed text-foreground/85">
             Four therapist-designed rituals to deepen your connection, one day at a time.
           </p>
         </div>
