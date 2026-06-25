@@ -923,21 +923,32 @@ function ResourceLibrary() {
           <CardLink
             key={r.title}
             href={r.href}
-            className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${tones[r.tone]} p-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card`}
+            className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br ${tones[r.tone]} p-6 ring-1 ring-white/60 shadow-[0_12px_40px_-18px_rgba(162,52,122,0.35)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-22px_rgba(162,52,122,0.45)] hover:ring-white/80`}
           >
-            <div className="flex items-start justify-between">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-1/2 rounded-t-3xl opacity-55"
+              style={{
+                background:
+                  "radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.55) 0%, transparent 60%)",
+              }}
+            />
+            <div className="relative flex items-start justify-between">
               <div
-                className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl shadow-soft ${iconTones[r.tone]}`}
+                className={`inline-flex h-[52px] w-[52px] items-center justify-center rounded-2xl ring-1 ring-white/70 shadow-[0_10px_24px_-10px_rgba(162,52,122,0.35)] ${iconTones[r.tone]}`}
               >
                 {r.icon}
               </div>
             </div>
-            <h4 className="mt-5 font-display text-2xl text-foreground">
+            <h4 className="relative mt-5 font-display text-2xl text-foreground tracking-tight">
               {r.title}
             </h4>
-            <div className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-foreground">
-              Explore{" "}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            <div className="relative mt-6 inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3.5 py-1.5 ring-1 ring-white/70 text-sm font-semibold text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-white group-hover:gap-2.5">
+              Explore <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </div>
           </CardLink>
         ))}
