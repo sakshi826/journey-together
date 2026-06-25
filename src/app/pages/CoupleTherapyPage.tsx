@@ -668,26 +668,15 @@ function GuidedSeries() {
       title="Guided Series"
       desc="Therapist-led journeys grouped by what you and your partner are working through."
     >
-      <div className="space-y-14">
-        {groups.map((g, gi) => (
+      <div className="space-y-10">
+        {groups.map((g) => (
           <div key={g.heading}>
-            <div className="mb-6 flex items-end justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="font-display text-2xl font-light tabular-nums text-[#A2347A]/40">
-                  {String(gi + 1).padStart(2, "0")}
-                </span>
-                <span aria-hidden className="h-px w-8 bg-gradient-to-r from-[#A2347A]/40 to-transparent" />
-                <h3 className="text-[11px] font-bold uppercase tracking-[0.22em] text-foreground">
-                  {g.heading}
-                </h3>
-              </div>
-              <span className="hidden text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:inline">
-                {g.items.length} journeys
-              </span>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((i, idx) => (
-                <SeriesRow key={i.title} index={idx + 1} {...i} />
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground">
+              {g.heading}
+            </h3>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {g.items.map((i) => (
+                <SeriesRow key={i.title} {...i} />
               ))}
             </div>
           </div>
@@ -703,63 +692,44 @@ function SeriesRow({
   desc,
   tone,
   href = "#",
-  index,
 }: {
   icon: React.ReactNode;
   title: string;
   desc: string;
   tone: Tone;
   href?: string;
-  index?: number;
 }) {
   return (
     <CardLink
       href={href}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/60 bg-gradient-to-br from-white via-white to-[#FFF5F9] p-6 shadow-[0_2px_8px_-2px_rgba(162,52,122,0.06)] transition-all duration-500 hover:-translate-y-1 hover:border-[#A2347A]/15 hover:shadow-[0_24px_50px_-20px_rgba(162,52,122,0.28)]"
+      className="group relative flex items-center gap-4 overflow-hidden rounded-xl bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30"
     >
-      {/* Top accent bar */}
       <span
         aria-hidden
-        className={`absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 ${toneStripe[tone]} transition-transform duration-500 group-hover:scale-x-100`}
-      />
-      {/* Decorative blurred orb */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-60"
+        className="pointer-events-none absolute -inset-4 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255,179,212,0.7), transparent 70%)",
+            "radial-gradient(closest-side, rgba(255,255,255,0.6), rgba(255,210,232,0.28) 55%, transparent 80%)",
         }}
       />
-
-      <div className="mb-5 flex items-start justify-between">
-        <div
-          className={`relative inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${toneStyles[tone]} ring-1 ring-white/80 transition-transform duration-500 group-hover:scale-105 group-hover:rotate-[-4deg]`}
-        >
-          {icon}
+      <span
+        aria-hidden
+        className={`absolute left-0 top-0 h-full w-0 ${toneStripe[tone]} transition-all duration-300 group-hover:w-1.5`}
+      />
+      <div
+        className={`relative inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${toneStyles[tone]}`}
+      >
+        {icon}
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-sm font-semibold text-foreground">
+          {title}
         </div>
-        {index !== undefined && (
-          <span className="font-display text-xs font-medium tracking-[0.2em] text-muted-foreground/70">
-            {String(index).padStart(2, "0")}
-          </span>
-        )}
+        <div className="mt-0.5 line-clamp-2 text-xs leading-relaxed text-foreground">
+          {desc}
+        </div>
       </div>
-
-      <h4 className="font-display text-lg leading-snug text-foreground transition-colors group-hover:text-[#A2347A]">
-        {title}
-      </h4>
-      <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-        {desc}
-      </p>
-
-      <div className="mt-6 flex items-center justify-between border-t border-dashed border-foreground/10 pt-4">
-        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#A2347A]/80">
-          Begin journey
-        </span>
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#A2347A]/5 text-[#A2347A] transition-all duration-500 group-hover:bg-[#A2347A] group-hover:text-white group-hover:shadow-[0_8px_20px_-6px_rgba(162,52,122,0.5)]">
-          <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-        </span>
-      </div>
+      <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
     </CardLink>
   );
 }
