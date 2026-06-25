@@ -671,7 +671,7 @@ function GuidedSeries() {
       <div className="space-y-10">
         {groups.map((g) => (
           <div key={g.heading}>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground/80">
+            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-foreground">
               {g.heading}
             </h3>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
