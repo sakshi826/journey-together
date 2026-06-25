@@ -519,11 +519,13 @@ function EmotionalConnection() {
       title="Emotional Connection and Trust"
       desc="Strengthen emotional connection, rebuild trust, and learn healthy relationship repair."
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        {items.map((i) => (
-          <ActivityCard key={i.title} {...i} />
-        ))}
-      </div>
+      <LoadingReveal skeleton={<CardSkeletonGrid count={4} />} delay={500}>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {items.map((i) => (
+            <ActivityCard key={i.title} {...i} />
+          ))}
+        </div>
+      </LoadingReveal>
     </Section>
   );
 }
