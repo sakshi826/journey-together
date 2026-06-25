@@ -257,7 +257,6 @@ export function CoupleTherapyPage() {
         <TopBar />
 
         <main className="mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8">
-          <Hero />
           <RelationshipTools />
           <EmotionalConnection />
           <CommunicationAlignment />
@@ -268,140 +267,6 @@ export function CoupleTherapyPage() {
       </div>
     </div>
     </ActivityFrameProvider>
-  );
-}
-
-/* ---------------------------------- Hero ---------------------------------- */
-
-function Hero() {
-  const stats = [
-    { value: "40+", label: "Guided activities" },
-    { value: "8", label: "Themed journeys" },
-    { value: "5 min", label: "Daily rituals" },
-  ];
-  return (
-    <section className="relative mt-6 sm:mt-10">
-      <div className="relative overflow-hidden rounded-[32px] border border-white/50 bg-white/55 p-8 shadow-soft backdrop-blur-md sm:p-12">
-        {/* decorative glows */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-24 -right-16 h-72 w-72 rounded-full bg-rose/35 blur-3xl"
-        />
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -bottom-28 -left-10 h-72 w-72 rounded-full bg-lavender/30 blur-3xl"
-        />
-        {/* faint stitched border */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-2 rounded-[28px] border border-dashed border-white/60"
-        />
-
-        <div className="relative grid items-center gap-10 sm:grid-cols-[1.4fr_1fr]">
-          <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#A2347A] ring-1 ring-[#A2347A]/15 backdrop-blur">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#D9468B] opacity-70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#A2347A]" />
-              </span>
-              For Couples · Therapist-Designed
-            </span>
-
-            <h1 className="mt-5 font-display text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
-              Grow closer,
-              <span className="relative ml-2 inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-[#A2347A] via-[#D9468B] to-[#F06292] bg-clip-text text-transparent">
-                  together
-                </span>
-                <svg
-                  aria-hidden
-                  viewBox="0 0 220 16"
-                  className="absolute -bottom-2 left-0 h-3 w-full text-[#F48FB1]"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M2 10 Q 55 2, 110 8 T 218 6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              .
-            </h1>
-
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
-              Gentle, guided rituals to deepen trust, communicate with care, and turn everyday moments into a more connected relationship.
-            </p>
-
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <a
-                href="#tools"
-                className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-foreground/20 transition hover:-translate-y-0.5 hover:shadow-xl"
-              >
-                Begin a ritual
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#series"
-                className="inline-flex items-center gap-2 rounded-full bg-white/80 px-5 py-3 text-sm font-semibold text-foreground ring-1 ring-black/5 backdrop-blur transition hover:bg-white"
-              >
-                Browse guided series
-              </a>
-            </div>
-
-            <dl className="mt-8 grid grid-cols-3 gap-3 max-w-md">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl bg-white/70 p-3 text-center ring-1 ring-black/5 backdrop-blur"
-                >
-                  <dt className="font-display text-xl text-foreground sm:text-2xl">
-                    {s.value}
-                  </dt>
-                  <dd className="mt-0.5 text-[11px] font-medium uppercase tracking-wider text-foreground/60">
-                    {s.label}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          {/* Illustrated heart medallion */}
-          <div className="relative mx-auto hidden h-full w-full max-w-sm sm:block">
-            <div className="relative aspect-square w-full">
-              {/* Orbit rings */}
-              <div className="absolute inset-0 rounded-full border border-white/60" />
-              <div className="absolute inset-6 rounded-full border border-dashed border-white/70" />
-              <div className="absolute inset-12 rounded-full bg-gradient-to-br from-white/80 to-[#FFE3EE]/60 shadow-2xl ring-1 ring-white/60 backdrop-blur" />
-
-              {/* Floating chips */}
-              <div className="absolute left-1 top-6 inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-[#A2347A] shadow-soft ring-1 ring-[#A2347A]/10 animate-float-slow">
-                <Heart className="h-3.5 w-3.5" /> Trust
-              </div>
-              <div className="absolute right-0 top-1/3 inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-[#6D7E6D] shadow-soft ring-1 ring-black/5 animate-float-medium">
-                <HandHeart className="h-3.5 w-3.5" /> Repair
-              </div>
-              <div className="absolute bottom-6 left-2 inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-[#6B7C93] shadow-soft ring-1 ring-black/5 animate-float-slow">
-                <MessageCircle className="h-3.5 w-3.5" /> Listen
-              </div>
-              <div className="absolute bottom-12 right-2 inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1.5 text-xs font-semibold text-[#A2347A] shadow-soft ring-1 ring-[#A2347A]/10 animate-float-medium">
-                <Star className="h-3.5 w-3.5" /> Delight
-              </div>
-
-              {/* Center heart */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative grid h-28 w-28 place-items-center rounded-full bg-gradient-to-br from-[#D9468B] to-[#A2347A] text-white shadow-2xl ring-4 ring-white/80">
-                  <Heart className="h-12 w-12" fill="currentColor" />
-                  <span className="absolute -inset-2 rounded-full bg-[#F48FB1]/40 blur-xl" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -800,7 +665,6 @@ function GuidedSeries() {
 
   return (
     <Section
-      id="series"
       title="Guided Series"
       desc="Therapist-led journeys grouped by what you and your partner are working through."
     >
@@ -905,7 +769,7 @@ const tools: { icon: React.ReactNode; title: string; desc: string; tone: Tone; h
 
 function RelationshipTools() {
   return (
-    <section id="tools" className="relative -mx-5 mt-4 overflow-hidden px-5 pt-4 pb-2 sm:-mx-8 sm:mt-6 sm:px-8 sm:pt-6 sm:pb-4 scroll-mt-24">
+    <section className="relative -mx-5 mt-4 overflow-hidden px-5 pt-4 pb-2 sm:-mx-8 sm:mt-6 sm:px-8 sm:pt-6 sm:pb-4">
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 left-1/4 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-rose-soft blur-3xl opacity-40"
@@ -1053,20 +917,14 @@ function Section({
   title,
   desc,
   children,
-  id,
 }: {
   title: string;
   desc?: string;
   children: React.ReactNode;
-  id?: string;
 }) {
   return (
-    <section id={id} className="mt-14 sm:mt-20 scroll-mt-24">
-      <div className="mb-6 flex flex-col gap-2">
-        <span
-          aria-hidden
-          className="h-px w-12 bg-gradient-to-r from-[#A2347A] to-transparent"
-        />
+    <section className="mt-14 sm:mt-20">
+      <div className="mb-6 flex flex-col gap-1">
         <h2 className="font-display text-2xl text-foreground sm:text-3xl">
           {title}
         </h2>
