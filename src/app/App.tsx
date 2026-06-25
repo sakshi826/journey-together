@@ -25,7 +25,13 @@ function App() {
       const token = urlParams.get("token");
       const storedUserId = sessionStorage.getItem("user_id") || localStorage.getItem("user_id");
 
-      const devUserId = import.meta.env.VITE_DEV_USER_ID;
+      const devUserId =
+        import.meta.env.VITE_DEV_USER_ID ||
+        (import.meta.env.DEV ||
+        (typeof window !== "undefined" &&
+          /lovable\.(app|dev)$|localhost|127\.0\.0\.1/.test(window.location.hostname))
+          ? "preview-user-1"
+          : null);
       if (devUserId && !storedUserId) {
         console.info(`[DEV] Seeding mock user_id: ${devUserId}`);
         sessionStorage.setItem("user_id", devUserId);
