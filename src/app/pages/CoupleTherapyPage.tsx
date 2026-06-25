@@ -671,9 +671,13 @@ function GuidedSeries() {
       <div className="space-y-10">
         {groups.map((g) => (
           <div key={g.heading}>
-            <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-black">
-              {g.heading}
-            </h3>
+            <div className="flex items-center gap-3">
+              <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-rose-500" />
+              <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-black whitespace-nowrap">
+                {g.heading}
+              </h3>
+              <span aria-hidden className="h-px flex-1 bg-gradient-to-r from-rose-300/60 to-transparent" />
+            </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {g.items.map((i) => (
                 <SeriesRow key={i.title} {...i} />
