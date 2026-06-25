@@ -182,13 +182,27 @@ export function CoupleTherapyPage() {
           "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
       }}
     >
+      {/* Aurora mesh — layered conic + radial sheens */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: [
+            "radial-gradient(ellipse 80% 50% at 20% 0%, rgba(255,200,230,0.55), transparent 60%)",
+            "radial-gradient(ellipse 70% 45% at 85% 15%, rgba(220,180,255,0.45), transparent 65%)",
+            "radial-gradient(ellipse 90% 60% at 50% 100%, rgba(255,220,240,0.6), transparent 70%)",
+            "conic-gradient(from 210deg at 70% 30%, rgba(255,170,210,0.18), rgba(200,150,240,0.12), rgba(255,200,230,0.18), rgba(255,170,210,0.18))",
+          ].join(", "),
+        }}
+      />
+
       {/* Strong top lightness fade */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
+            "linear-gradient(180deg, rgba(255,242,250,0.88) 0%, rgba(255,228,242,0.5) 25%, rgba(255,212,236,0.18) 55%, transparent 85%)",
         }}
       />
       {/* Mid-section lightness band */}
@@ -197,7 +211,7 @@ export function CoupleTherapyPage() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255,238,248,0.42) 42%, rgba(255,235,247,0.5) 58%, rgba(255,238,248,0.35) 72%, rgba(255,236,246,0.25) 82%, transparent 95%)",
+            "linear-gradient(180deg, transparent 0%, transparent 28%, rgba(255,240,250,0.5) 42%, rgba(255,238,250,0.58) 58%, rgba(255,240,250,0.4) 72%, rgba(255,238,250,0.28) 82%, transparent 95%)",
         }}
       />
       {/* Bottom lightness */}
@@ -206,52 +220,86 @@ export function CoupleTherapyPage() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(0deg, rgba(255,240,250,0.82) 0%, rgba(255,225,240,0.45) 25%, rgba(255,210,235,0.15) 55%, transparent 85%)",
+            "linear-gradient(0deg, rgba(255,242,250,0.88) 0%, rgba(255,228,242,0.5) 25%, rgba(255,212,236,0.18) 55%, transparent 85%)",
         }}
       />
-      {/* Soft pink center glow */}
+
+      {/* Slow drifting light rays */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 opacity-60 mix-blend-screen"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse at 50% 10%, rgba(255,215,235,0.55), transparent 50%)",
+            "repeating-linear-gradient(115deg, transparent 0px, transparent 140px, rgba(255,255,255,0.06) 140px, rgba(255,255,255,0.06) 142px, transparent 142px, transparent 280px)",
+          transform: `translate3d(${scrollY * -0.02}px, ${scrollY * -0.04}px, 0)`,
         }}
       />
 
       {/* Animated floating orbs with gentle parallax */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-out group-has-[a:hover]/page:opacity-30 group-has-[button:hover]/page:opacity-30"
+        className="pointer-events-none absolute inset-0 transition-opacity duration-700 ease-out group-has-[a:hover]/page:opacity-40 group-has-[button:hover]/page:opacity-40"
       >
         <div
-          className="absolute -left-20 top-[15%] h-80 w-80 rounded-full bg-rose/25 blur-[80px] animate-float-slow will-change-transform"
-          style={{ transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)` }}
+          className="absolute -left-24 top-[10%] h-[22rem] w-[22rem] rounded-full blur-[90px] animate-float-slow will-change-transform"
+          style={{
+            background: "radial-gradient(circle, rgba(255,150,200,0.55), rgba(255,150,200,0) 70%)",
+            transform: `translate3d(${scrollY * 0.04}px, ${scrollY * -0.18}px, 0)`,
+          }}
         />
         <div
-          className="absolute right-[-5%] top-[40%] h-96 w-96 rounded-full bg-lavender/20 blur-[90px] animate-float-medium will-change-transform"
-          style={{ transform: `translate3d(${scrollY * -0.05}px, ${scrollY * -0.1}px, 0)` }}
+          className="absolute right-[-6%] top-[32%] h-[26rem] w-[26rem] rounded-full blur-[100px] animate-float-medium will-change-transform"
+          style={{
+            background: "radial-gradient(circle, rgba(195,150,255,0.5), rgba(195,150,255,0) 70%)",
+            transform: `translate3d(${scrollY * -0.05}px, ${scrollY * -0.1}px, 0)`,
+          }}
         />
         <div
-          className="absolute bottom-[10%] left-[10%] h-72 w-72 rounded-full bg-sky/20 blur-[70px] animate-float-slow will-change-transform"
-          style={{ transform: `translate3d(${scrollY * 0.06}px, ${scrollY * -0.25}px, 0)` }}
+          className="absolute bottom-[8%] left-[8%] h-[20rem] w-[20rem] rounded-full blur-[80px] animate-float-slow will-change-transform"
+          style={{
+            background: "radial-gradient(circle, rgba(170,210,255,0.45), rgba(170,210,255,0) 70%)",
+            transform: `translate3d(${scrollY * 0.06}px, ${scrollY * -0.25}px, 0)`,
+          }}
         />
         <div
-          className="absolute bottom-[25%] right-[5%] h-64 w-64 rounded-full bg-sage/22 blur-[75px] animate-float-medium will-change-transform"
-          style={{ transform: `translate3d(${scrollY * -0.03}px, ${scrollY * -0.15}px, 0)` }}
+          className="absolute bottom-[22%] right-[6%] h-[18rem] w-[18rem] rounded-full blur-[80px] animate-float-medium will-change-transform"
+          style={{
+            background: "radial-gradient(circle, rgba(255,200,180,0.45), rgba(255,200,180,0) 70%)",
+            transform: `translate3d(${scrollY * -0.03}px, ${scrollY * -0.15}px, 0)`,
+          }}
+        />
+        <div
+          className="absolute top-[55%] left-[40%] h-[14rem] w-[14rem] rounded-full blur-[70px] animate-float-slow will-change-transform"
+          style={{
+            background: "radial-gradient(circle, rgba(255,255,255,0.5), rgba(255,255,255,0) 70%)",
+            transform: `translate3d(${scrollY * 0.02}px, ${scrollY * -0.2}px, 0)`,
+          }}
         />
       </div>
 
-      {/* Subtle mesh overlay */}
+      {/* Sparkle dust */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] mix-blend-screen"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
-          backgroundSize: "128px 128px",
+            "radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,0.9), transparent 60%), radial-gradient(1px 1px at 28% 62%, rgba(255,255,255,0.7), transparent 60%), radial-gradient(1.5px 1.5px at 64% 22%, rgba(255,255,255,0.85), transparent 60%), radial-gradient(1px 1px at 82% 78%, rgba(255,255,255,0.7), transparent 60%), radial-gradient(1.2px 1.2px at 45% 88%, rgba(255,255,255,0.75), transparent 60%), radial-gradient(1px 1px at 92% 35%, rgba(255,255,255,0.7), transparent 60%), radial-gradient(1.5px 1.5px at 8% 80%, rgba(255,255,255,0.8), transparent 60%)",
+          backgroundSize: "100% 100%",
+          transform: `translate3d(0, ${scrollY * -0.08}px, 0)`,
         }}
       />
+
+      {/* Fine grain noise */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          backgroundSize: "180px 180px",
+        }}
+      />
+
 
       <div className="relative z-10">
         <TopBar />
