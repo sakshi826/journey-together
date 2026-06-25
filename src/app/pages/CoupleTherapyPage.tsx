@@ -1052,14 +1052,20 @@ function Section({
   title,
   desc,
   children,
+  id,
 }: {
   title: string;
   desc?: string;
   children: React.ReactNode;
+  id?: string;
 }) {
   return (
-    <section className="mt-14 sm:mt-20">
-      <div className="mb-6 flex flex-col gap-1">
+    <section id={id} className="mt-14 sm:mt-20 scroll-mt-24">
+      <div className="mb-6 flex flex-col gap-2">
+        <span
+          aria-hidden
+          className="h-px w-12 bg-gradient-to-r from-[#A2347A] to-transparent"
+        />
         <h2 className="font-display text-2xl text-foreground sm:text-3xl">
           {title}
         </h2>
