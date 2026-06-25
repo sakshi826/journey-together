@@ -702,7 +702,7 @@ function SeriesRow({
   return (
     <CardLink
       href={href}
-      className="group relative flex items-center gap-4 overflow-hidden rounded-xl bg-card p-4 pl-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30"
+      className="group relative flex items-center gap-4 overflow-hidden rounded-2xl bg-card p-4 pl-5 shadow-soft ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:ring-primary/25"
     >
       <span
         aria-hidden
