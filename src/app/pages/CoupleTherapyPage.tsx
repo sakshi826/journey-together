@@ -923,13 +923,16 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-14 sm:mt-20">
-      <div className="mb-6 flex flex-col gap-1">
-        <h2 className="font-display text-2xl text-foreground sm:text-3xl">
-          {title}
-        </h2>
+    <section className="mt-16 sm:mt-24">
+      <div className="mb-7 flex flex-col gap-2 sm:mb-9">
+        <div className="flex items-center gap-3">
+          <span aria-hidden className="h-px w-8 bg-gradient-to-r from-[#A2347A] to-transparent" />
+          <h2 className="font-display text-[26px] leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[34px]">
+            {title}
+          </h2>
+        </div>
         {desc && (
-          <p className="mt-1 max-w-2xl text-sm text-foreground">{desc}</p>
+          <p className="max-w-2xl pl-11 text-[15px] leading-relaxed text-foreground/85">{desc}</p>
         )}
       </div>
       {children}
