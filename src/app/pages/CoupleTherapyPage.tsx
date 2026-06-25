@@ -676,7 +676,7 @@ function GuidedSeries() {
               <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-black whitespace-nowrap">
                 {g.heading}
               </h3>
-              <span aria-hidden className="h-px flex-1 bg-gray-300" />
+              <span aria-hidden className="h-px flex-1 bg-black" />
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {g.items.map((i) => (
