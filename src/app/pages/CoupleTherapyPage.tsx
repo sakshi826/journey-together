@@ -800,6 +800,7 @@ function GuidedSeries() {
 
   return (
     <Section
+      id="series"
       title="Guided Series"
       desc="Therapist-led journeys grouped by what you and your partner are working through."
     >
