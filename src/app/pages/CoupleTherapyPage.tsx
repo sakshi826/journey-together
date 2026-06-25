@@ -466,11 +466,16 @@ function AlignmentCard({
     <CardLink
       href={href}
       onClick={onClick}
-      className="group relative flex gap-4 overflow-hidden rounded-2xl bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
+      className="group relative flex gap-4 overflow-hidden rounded-2xl bg-white/70 backdrop-blur-xl p-5 pl-6 ring-1 ring-white/60 shadow-[0_10px_36px_-18px_rgba(162,52,122,0.32)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_50px_-22px_rgba(162,52,122,0.42)] hover:ring-[#A2347A]/30 cursor-pointer"
     >
+      {/* top inner highlight */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -inset-5 -z-10 rounded-[1.75rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/90 to-transparent"
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -inset-5 -z-10 rounded-[1.75rem] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
             "radial-gradient(closest-side, rgba(255,255,255,0.65), rgba(255,210,232,0.3) 55%, transparent 80%)",
@@ -478,19 +483,19 @@ function AlignmentCard({
       />
       <span
         aria-hidden
-        className={`absolute left-0 top-0 h-full w-1.5 ${toneStripe[tone]} transition-all group-hover:w-2`}
+        className={`absolute left-0 top-3 bottom-3 w-1 rounded-full ${toneStripe[tone]} transition-all duration-300 group-hover:top-1 group-hover:bottom-1 group-hover:w-1.5`}
       />
       <div
-        className={`mt-0.5 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-2 border-current/20 ${toneStyles[tone]}`}
+        className={`mt-0.5 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ring-1 ring-white/70 shadow-[0_6px_18px_-8px_rgba(162,52,122,0.3)] ${toneStyles[tone]}`}
       >
         {icon}
       </div>
       <div className="flex-1">
         <div className="flex items-start justify-between gap-3">
-          <h4 className="font-display text-lg text-foreground">{title}</h4>
-          <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
+          <h4 className="font-display text-lg text-foreground tracking-tight">{title}</h4>
+          <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground" />
         </div>
-        <p className="mt-1 text-sm leading-relaxed text-foreground">
+        <p className="mt-1 text-sm leading-relaxed text-foreground/85">
           {desc}
         </p>
       </div>
