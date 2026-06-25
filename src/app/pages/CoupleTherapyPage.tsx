@@ -450,7 +450,7 @@ function AlignmentCard({
     <CardLink
       href={href}
       onClick={onClick}
-      className="group relative flex gap-4 overflow-hidden rounded-2xl bg-card p-5 pl-6 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-card hover:ring-1 hover:ring-primary/30 cursor-pointer"
+      className="group relative flex gap-4 overflow-hidden rounded-2xl bg-card p-5 pl-6 shadow-soft ring-1 ring-black/[0.04] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:ring-primary/25 cursor-pointer"
     >
       <span
         aria-hidden
