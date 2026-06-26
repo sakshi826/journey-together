@@ -131,6 +131,19 @@ function App() {
     };
 
     const redirectToAuth = () => {
+      // In Lovable preview / localhost, skip external auth and seed a demo user
+      const host = window.location.hostname;
+      const isPreview =
+        host === "localhost" ||
+        host.endsWith(".lovableproject.com") ||
+        host.endsWith(".lovable.app") ||
+        host.endsWith(".lovable.dev");
+      if (isPreview) {
+        const demoId = "demo-user";
+        sessionStorage.setItem("user_id", demoId);
+        setIsAuthorized(true);
+        return;
+      }
       const currentPath = window.location.pathname + window.location.search + window.location.hash;
       if (!currentPath.includes("token=")) {
         localStorage.setItem("APP_REDIRECT_PATH", currentPath);
