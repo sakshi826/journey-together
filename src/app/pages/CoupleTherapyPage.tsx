@@ -179,7 +179,7 @@ export function CoupleTherapyPage() {
       className="group/page min-h-screen relative overflow-hidden font-sans"
       style={{
         background:
-          "linear-gradient(160deg, #A2347A 0%, #D9468B 35%, #F06292 65%, #F48FB1 100%)",
+          "linear-gradient(160deg, #9B3074 0%, #D23E85 30%, #F06292 58%, #F9B0C8 100%)",
       }}
     >
       {/* Strong top lightness fade */}
