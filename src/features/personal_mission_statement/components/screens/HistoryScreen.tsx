@@ -19,7 +19,7 @@ interface HistoryScreenProps {
 }
 
 const HistoryScreen = ({ onBack }: HistoryScreenProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
     const [missions, setMissions] = useState<SavedMission[]>([]);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const HistoryScreen = ({ onBack }: HistoryScreenProps) => {
                 if (!userId) return;
 
                 const results = await query(
-                    "SELECT id, statement, values, created_at AS date FROM missions WHERE user_id = $1 ORDER BY created_at DESC",
+                    "SELECT id, statement, \"values\", created_at AS date FROM missions WHERE user_id = $1 ORDER BY created_at DESC",
                     [userId]
                 );
                 setMissions(results);

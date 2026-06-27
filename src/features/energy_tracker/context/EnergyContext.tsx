@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { sql } from "@/lib/db";
+import { pool } from "../lib/db";
 import { useTranslation } from "react-i18next";
 
 export type EnergyLevel = "very-low" | "low" | "okay" | "good" | "high";
@@ -49,12 +50,12 @@ export const EnergyProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(true);
     try {
       console.log("Refreshing energy history for user:", userId);
-      const rows = await (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(
+      const { rows } = await pool.query(
         "SELECT date, level, factors, note FROM energy_logs WHERE user_id = $1 ORDER BY date DESC",
         [userId]
       );
       
-      const formattedEntries = (Array.isArray(rows) ? rows : (rows.rows || [])).map((row: any) => ({
+      const formattedEntries = (Array.isArray(rows) ? rows : (rows || [])).map((row: any) => ({
         date: row.date instanceof Date ? row.date.toISOString().split('T')[0] : row.date,
         level: row.level as EnergyLevel,
         factors: Array.isArray(row.factors) ? row.factors : [],
@@ -93,7 +94,7 @@ export const EnergyProvider = ({ children }: { children: ReactNode }) => {
 
     setIsLoading(true);
     try {
-      await (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(
+      await pool.query(
         `INSERT INTO energy_logs (user_id, date, level, factors, note) 
          VALUES ($1, $2, $3, $4, $5) 
          ON CONFLICT (user_id, date) 

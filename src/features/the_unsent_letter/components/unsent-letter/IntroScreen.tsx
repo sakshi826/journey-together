@@ -7,9 +7,10 @@ interface IntroScreenProps {
   step: number;
   onStart: () => void;
   onHistory: () => void;
+  onBack?: () => void;
 }
 
-const IntroScreen = ({ step, onStart, onHistory }: IntroScreenProps) => {
+const IntroScreen = ({ step, onStart, onHistory, onBack }: IntroScreenProps) => {
   const { t } = useTranslation();
   const description = (typeof t !== "undefined" ? t : (k) => k)("intro.description", { returnObjects: true }) as string[];
 
@@ -17,7 +18,10 @@ const IntroScreen = ({ step, onStart, onHistory }: IntroScreenProps) => {
     <div className="flex flex-col flex-1 px-6 py-8">
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
-        <button className="p-2 -ml-2 rounded-full hover:bg-card transition-colors">
+        <button 
+          onClick={onBack}
+          className="p-2 -ml-2 rounded-full hover:bg-card transition-colors"
+        >
           <ArrowLeft className="w-5 h-5 text-muted-foreground" />
         </button>
         <ProgressDots current={step} total={3} />

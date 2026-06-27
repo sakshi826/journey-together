@@ -1,19 +1,12 @@
-// @ts-nocheck
-import { sql } from '@/lib/db';
+import { dbRequest, sql } from '@/lib/db';
 
+export const query = async (t: string, p?: any[]) => {
+  const rows = await dbRequest(t, p || []);
+  return { rows, rowCount: rows.length };
+};
 
-// This allows the driver to work in the browser via HTTP/WebSockets
-
-
-
-
-// 'neon' returns a function that can be used as a tagged template or has a .query method
-export const query = (t: string, p?: any[]) => (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(t, p || []);
 export { sql };
 
-/**
- * Executes a SQL query with parameters.
- */
 export const dbQuery = async (text: string, params?: any[]) => {
-    return await (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(text, params || []);
+  return await dbRequest(text, params || []);
 };

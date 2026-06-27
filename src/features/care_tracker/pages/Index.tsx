@@ -118,7 +118,9 @@ const Index = () => {
         case 'activities': return () => setScreen("checkin");
         case 'noSelfCare': return () => setScreen("checkin");
         case 'checkin': return () => setScreen("intro");
-        default: return undefined; // Triggers handleExit in PremiumLayout
+        case 'intro': return () => navigate("/");
+        case 'review': return () => navigate("/");
+        default: return () => navigate("/");
       }
     };
 

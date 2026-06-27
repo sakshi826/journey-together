@@ -1,16 +1,11 @@
-// @ts-nocheck
-import { sql } from '@/lib/db';
+import { dbRequest } from '@/lib/db';
 
-
-// Version check log
-console.log("DB Module Loaded: v1.0.2 - Using Pool with HTTP Cache");
-
-// Allow connection from browser
-
-
-
-
-export const pool = { query: (t: string, p?: any[]) => (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(t, p || []) };
+export const pool = {
+  query: async (t: string, p?: any[]) => {
+    const rows = await dbRequest(t, p || []);
+    return { rows };
+  }
+};
 
 export const dbQuery = async (text: string, params?: any[]) => {
     console.log("SQL Exec:", text, params);

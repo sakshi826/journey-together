@@ -21,9 +21,21 @@ const Index = () => {
 
   const goTo = (s: number) => setScreen(s);
 
+  const getBackAction = () => {
+    switch (screen) {
+      case 0: return () => window.location.href = "/couple_module/";
+      case 1: return () => goTo(0);
+      case 2: return () => goTo(1);
+      case 3: return () => goTo(2);
+      case 4: return () => goTo(0);
+      default: return () => goTo(0);
+    }
+  };
+
   return (
     <PremiumLayout 
       title={(typeof t !== "undefined" ? t : (k) => k)("app_title")}
+      onBack={getBackAction()}
     >
       <div className="w-full">
         <AnimatePresence mode="wait">

@@ -122,6 +122,9 @@ const Index = () => {
                   step={currentStep}
                   onStart={() => setScreen("writing")}
                   onHistory={() => setScreen("history")}
+                  onBack={() => {
+                    window.location.href = "/couple_module/";
+                  }}
                 />
               )}
               {screen === "writing" && (

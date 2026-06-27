@@ -174,7 +174,6 @@ const Index = () => {
                     className="w-full max-w-lg py-4.5 rounded-2xl bg-primary text-primary-foreground font-black text-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-40"
                 >
                     {(typeof t !== "undefined" ? t : (k) => k)('app.continue')}
-                    <ArrowRight size={20} />
                 </motion.button>
               </div>
           </motion.div>
@@ -225,7 +224,6 @@ const Index = () => {
                             className="w-full max-w-lg py-4.5 rounded-2xl bg-primary text-primary-foreground font-black text-lg shadow-lg shadow-primary/20 hover:shadow-xl transition-all flex items-center justify-center gap-3 disabled:opacity-40"
                         >
                             {(typeof t !== "undefined" ? t : (k) => k)('app.next')}
-                            <ArrowRight size={20} />
                         </motion.button>
                       </div>
                   </motion.div>

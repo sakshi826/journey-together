@@ -1,8 +1,11 @@
-// @ts-nocheck
-import { sql } from '@/lib/db';
+import { dbRequest } from '@/lib/db';
 
-
-export const pool = { query: (t, p) => (sql ? (sql ? (sql as any).query : async () => ({ rows: [] })) : async () => ({ rows: [] }))(t, p || []) };
+export const pool = {
+  query: async (t: string, p?: any[]) => {
+    const rows = await dbRequest(t, p || []);
+    return { rows, rowCount: rows.length };
+  }
+};
 
 export const query = async (text: string, params?: any[]) => {
     const start = Date.now();

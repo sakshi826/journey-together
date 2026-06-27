@@ -1,11 +1,8 @@
-// @ts-nocheck
-
-import { sql } from "@/lib/db";
+import { dbRequest } from "@/lib/db";
 
 export const initializeSleepTable = async () => {
-  if (!sql) return;
   try {
-    await (sql ? (sql as any).query : async () => ({ rows: [] }))(`
+    await dbRequest(`
       CREATE TABLE IF NOT EXISTS sleep_audit_entries (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         user_id TEXT NOT NULL,
@@ -19,13 +16,12 @@ export const initializeSleepTable = async () => {
 };
 
 export const fetchSleepHistory = async (userId: string) => {
-  if (!sql) return [];
   try {
-    const results = await (sql ? (sql as any).query : async () => ({ rows: [] }))(
+    const rows = await dbRequest(
       'SELECT id, audit_data, created_at FROM sleep_audit_entries WHERE user_id = $1 ORDER BY created_at DESC LIMIT 20',
       [userId]
     );
-    return results.rows || [];
+    return rows || [];
   } catch (e) {
     console.error("Fetch sleep history error:", e);
     return [];
@@ -33,8 +29,7 @@ export const fetchSleepHistory = async (userId: string) => {
 };
 
 export const saveSleepAudit = async (userId: string, auditData: any) => {
-  if (!sql) throw new Error("Database not connected");
-  await (sql ? (sql as any).query : async () => ({ rows: [] }))(
+  await dbRequest(
     'INSERT INTO sleep_audit_entries (user_id, audit_data) VALUES ($1, $2)',
     [userId, JSON.stringify(auditData)]
   );

@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { PremiumComplete } from "../../../../components/shared/PremiumComplete";
 import { MissionData } from "../../types/mission";
 import { toast } from "sonner";
@@ -31,15 +32,18 @@ const MissionScreen = ({ data, onEdit, onHome, onChange }: MissionScreenProps) =
     );
   }, [t, valuesText, data.beingSomeoneWho, data.lifeFeelMore]);
 
-  const handleSave = async () => {
+  const navigate = useNavigate();
+
+  const handleFinishAndExit = async () => {
     try {
       const userId = sessionStorage.getItem("user_id");
       if (!userId) {
-        throw new Error("User not authenticated");
+        navigate("/");
+        return;
       }
 
       await query(
-        "INSERT INTO missions (user_id, statement, values) VALUES ($1, $2, $3)",
+        "INSERT INTO missions (user_id, statement, \"values\") VALUES ($1, $2, $3)",
         [userId, statement, data.values]
       );
 
@@ -47,6 +51,8 @@ const MissionScreen = ({ data, onEdit, onHome, onChange }: MissionScreenProps) =
     } catch (error) {
       console.error(error);
       toast.error("Failed to save statement.");
+    } finally {
+      navigate("/");
     }
   };
 
@@ -55,6 +61,7 @@ const MissionScreen = ({ data, onEdit, onHome, onChange }: MissionScreenProps) =
       title={(typeof t !== "undefined" ? t : (k) => k)("app_title")}
       message={(typeof t !== "undefined" ? t : (k) => k)('mission_is_reminder')}
       onRestart={onHome}
+      onHome={handleFinishAndExit}
     >
       <div className="space-y-8 w-full max-w-lg mx-auto mt-8">
         <motion.div
@@ -80,27 +87,6 @@ const MissionScreen = ({ data, onEdit, onHome, onChange }: MissionScreenProps) =
           <p>{(typeof t !== "undefined" ? t : (k) => k)('mission_return_whenever')}</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleSave}
-            className="py-4 bg-primary text-primary-foreground font-bold rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
-          >
-            <Save size={18} />
-            {(typeof t !== "undefined" ? t : (k) => k)('mission_save')}
-          </motion.button>
-          
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={onEdit}
-            className="py-4 bg-white border-2 border-slate-100 text-slate-600 font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-slate-50 transition-all shadow-sm"
-          >
-            <Pencil size={18} />
-            {(typeof t !== "undefined" ? t : (k) => k)('mission_edit')}
-          </motion.button>
-        </div>
       </div>
     </PremiumComplete>
   );
