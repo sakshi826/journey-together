@@ -134,7 +134,12 @@ function App() {
       // In Lovable preview / localhost, skip external auth and seed a demo user
       const host = window.location.hostname;
       const isPreview =
+        import.meta.env.DEV ||
         host === "localhost" ||
+        host === "127.0.0.1" ||
+        host.startsWith("192.168.") ||
+        host.startsWith("10.") ||
+        host.startsWith("172.") ||
         host.endsWith(".lovableproject.com") ||
         host.endsWith(".lovable.app") ||
         host.endsWith(".lovable.dev");
