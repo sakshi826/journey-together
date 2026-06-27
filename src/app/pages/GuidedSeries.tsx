@@ -81,7 +81,11 @@ export default function GuidedSeries() {
       <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 py-4 flex items-center gap-4">
         <button
           onClick={() => {
-            navigate(-1);
+            if (window.history.length > 1) {
+              navigate(-1);
+            } else {
+              navigate("/");
+            }
           }}
           className="p-2 hover:bg-slate-100 rounded-full transition-colors"
         >

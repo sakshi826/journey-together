@@ -31,10 +31,10 @@ const GUIDANCE_CONTENT: Record<string, {
         title: "Understanding Growing Apart",
         type: 'text',
         content: "Most couples don't drift apart overnight. Distance often develops gradually through busy schedules, reduced communication, unresolved disappointments, and fewer shared experiences.",
-        bg: "bg-blue-50/50",
-        border: "border-blue-100",
-        text: "text-blue-900",
-        iconColor: "text-blue-500"
+        bg: "bg-pink-50/50",
+        border: "border-pink-100",
+        text: "text-pink-900",
+        iconColor: "text-pink-500"
       },
       {
         title: "Common Signs",
@@ -84,10 +84,10 @@ const GUIDANCE_CONTENT: Record<string, {
         title: "Understanding Escalation",
         type: 'text',
         content: "Many major conflicts begin with minor frustrations. The issue itself is often less important than the emotions underneath it.",
-        bg: "bg-blue-50/50",
-        border: "border-blue-100",
-        text: "text-blue-900",
-        iconColor: "text-blue-500"
+        bg: "bg-pink-50/50",
+        border: "border-pink-100",
+        text: "text-pink-900",
+        iconColor: "text-pink-500"
       },
       {
         title: "Common Escalation Patterns",
@@ -137,10 +137,10 @@ const GUIDANCE_CONTENT: Record<string, {
         title: "Understanding Escalation",
         type: 'text',
         content: "Many major conflicts begin with minor frustrations. The issue itself is often less important than the emotions underneath it.",
-        bg: "bg-blue-50/50",
-        border: "border-blue-100",
-        text: "text-blue-900",
-        iconColor: "text-blue-500"
+        bg: "bg-pink-50/50",
+        border: "border-pink-100",
+        text: "text-pink-900",
+        iconColor: "text-pink-500"
       },
       {
         title: "Common Escalation Patterns",
@@ -190,10 +190,10 @@ const GUIDANCE_CONTENT: Record<string, {
         title: "Understanding Relationship Loneliness",
         type: 'text',
         content: "A person can deeply love their partner and still feel emotionally disconnected. Physical presence does not always create emotional closeness.",
-        bg: "bg-blue-50/50",
-        border: "border-blue-100",
-        text: "text-blue-900",
-        iconColor: "text-blue-500"
+        bg: "bg-pink-50/50",
+        border: "border-pink-100",
+        text: "text-pink-900",
+        iconColor: "text-pink-500"
       },
       {
         title: "Possible Causes",
@@ -248,10 +248,10 @@ const GUIDANCE_CONTENT: Record<string, {
         title: "Understanding Breaking Points",
         type: 'text',
         content: "Every relationship faces challenges. A breaking point is reached when ongoing issues overwhelm the couple's ability to feel connected, hopeful, or secure.",
-        bg: "bg-blue-50/50",
-        border: "border-blue-100",
-        text: "text-blue-900",
-        iconColor: "text-blue-500"
+        bg: "bg-pink-50/50",
+        border: "border-pink-100",
+        text: "text-pink-900",
+        iconColor: "text-pink-500"
       },
       {
         title: "Warning Signs",
@@ -447,7 +447,7 @@ export default function GuidedActivity() {
                 }}
                 className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between ${
                   (formData.checked || []).includes(opt) 
-                    ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-100' 
+                    ? 'bg-primary border-primary text-white shadow-lg shadow-pink-100' 
                     : 'bg-slate-50 border-slate-100 text-slate-600 hover:border-slate-200'
                 }`}
               >
@@ -469,7 +469,7 @@ export default function GuidedActivity() {
                     onClick={() => setFormData({...formData, rating: num})}
                     className={`w-12 h-12 rounded-2xl font-black text-lg transition-all ${
                       formData.rating === num 
-                        ? 'bg-blue-600 text-white scale-110 shadow-xl' 
+                        ? 'bg-primary text-white scale-110 shadow-xl' 
                         : 'bg-slate-100 text-slate-400 hover:bg-slate-200'
                     }`}
                   >
@@ -511,7 +511,7 @@ export default function GuidedActivity() {
                     <ul className="space-y-2">
                       {sec.content.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-slate-600 text-sm font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -546,7 +546,7 @@ export default function GuidedActivity() {
               value={reflection}
               onChange={(e) => setReflection(e.target.value)}
               placeholder={(typeof t !== "undefined" ? t : (k) => k)("start_typing_your_reflection_here")}
-              className="w-full h-64 p-8 bg-[#F8FAFC] border border-slate-100 rounded-[32px] focus:ring-4 focus:ring-blue-100/50 focus:border-blue-400 transition-all resize-none text-slate-700 text-lg placeholder:text-slate-300 leading-relaxed"
+              className="w-full h-64 p-8 bg-[#F8FAFC] border border-slate-100 rounded-[32px] focus:ring-4 focus:ring-pink-100/50 focus:border-pink-400 transition-all resize-none text-slate-700 text-lg placeholder:text-slate-300 leading-relaxed"
             />
           </div>
         );
@@ -557,7 +557,13 @@ export default function GuidedActivity() {
     <PremiumLayout
       title={formatTitle(decodedName)}
       subtitle="Common Relationship Issues"
-      onBack={() => navigate(-1)}
+      onBack={() => {
+        if (window.history.length > 1) {
+          navigate(-1);
+        } else {
+          navigate(`/guided-series/${concern}`);
+        }
+      }}
     >
       <div className="max-w-2xl mx-auto px-4 mt-2">
         <motion.div
@@ -642,7 +648,7 @@ export default function GuidedActivity() {
                     {history.map((entry, idx) => (
                       <div key={idx} className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm">
                         <div className="flex justify-between items-center mb-6">
-                          <span className="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">
+                          <span className="text-[10px] font-black text-primary bg-primary/10 px-3 py-1.5 rounded-full">
                             {new Date(entry.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                           </span>
                         </div>

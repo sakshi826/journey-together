@@ -50,7 +50,11 @@ export const PremiumLayout: React.FC<PremiumLayoutProps> = ({
     }
 
     // Standard back button logic
-    navigate(-1);
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   };
 
   return (
