@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import IntroScreen from "../components/reflection/IntroScreen";
 import BreathingScreen from "../components/reflection/BreathingScreen";
 import ReflectionPrompt from "../components/reflection/ReflectionPrompt";
@@ -25,6 +26,7 @@ type Screen = "intro" | "breathing" | "r1" | "r2" | "r3" | "intention" | "checki
 
 const Index = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const reflectionPrompts = [
     {
@@ -93,7 +95,9 @@ const Index = () => {
     <PremiumLayout 
       title={(typeof t !== "undefined" ? t : (k) => k)("app_title")}
       icon={<Heart className="w-6 h-6 text-primary" />}
-      onBack={currentIdx > 0 && screen !== 'closing' ? () => setScreen(screenOrder[currentIdx - 1]) : undefined}
+      onBack={currentIdx > 0 && screen !== 'closing'
+        ? () => setScreen(screenOrder[currentIdx - 1])
+        : () => navigate("/")}
       onReset={currentIdx > 0 && screen !== 'closing' ? resetFlow : undefined}
     >
       <div className="w-full max-w-md mx-auto flex flex-col px-6 py-4 min-h-[70vh]" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif' }}>

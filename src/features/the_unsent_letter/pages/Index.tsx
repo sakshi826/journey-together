@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import FloatingHearts from "@/features/the_unsent_letter/components/FloatingHearts";
-import { sql } from "@/lib/db";
+import { dbRequest } from "@/lib/db";
 import { toast } from "sonner";
 import {
   Mail, ArrowLeft, Clock, Send, Feather, BookOpen,
@@ -41,15 +41,16 @@ const Index = () => {
   const userId = sessionStorage.getItem("user_id");
 
   const fetchLetters = useCallback(async () => {
-    if (!userId || !sql) return;
+    if (!userId) return;
     try {
       setIsLoading(true);
-      const results = await sql`
-        SELECT id, content, recipient, created_at 
-        FROM unsent_letters 
-        WHERE user_id = ${userId} 
-        ORDER BY created_at DESC
-      `;
+      const results = await dbRequest(
+        `SELECT id, content, recipient, created_at 
+         FROM unsent_letters 
+         WHERE user_id = $1 
+         ORDER BY created_at DESC`,
+        [userId]
+      );
       setSavedLetters(
         results.map((r: any) => ({
           id: r.id,
@@ -75,16 +76,17 @@ const Index = () => {
       toast.error("Please write something before saving.");
       return;
     }
-    if (!userId || !sql) {
+    if (!userId) {
       toast.error("Session not found. Please refresh.");
       return;
     }
     try {
       setIsSaving(true);
-      await sql`
-        INSERT INTO unsent_letters (user_id, content, recipient)
-        VALUES (${userId}, ${letterContent.trim()}, ${recipient.trim() || null})
-      `;
+      await dbRequest(
+        `INSERT INTO unsent_letters (user_id, content, recipient)
+         VALUES ($1, $2, $3)`,
+        [userId, letterContent.trim(), recipient.trim() || null]
+      );
       toast.success("Your letter has been saved. ✨");
       setLetterContent("");
       setRecipient("");
@@ -99,9 +101,11 @@ const Index = () => {
   }, [letterContent, recipient, userId, fetchLetters]);
 
   const deleteLetter = useCallback(async (id: string) => {
-    if (!sql) return;
     try {
-      await sql`DELETE FROM unsent_letters WHERE id = ${id} AND user_id = ${userId}`;
+      await dbRequest(
+        `DELETE FROM unsent_letters WHERE id = $1 AND user_id = $2`,
+        [id, userId]
+      );
       setSavedLetters((prev) => prev.filter((l) => l.id !== id));
       toast.success("Letter deleted.");
     } catch (err) {
@@ -124,17 +128,6 @@ const Index = () => {
       subtitle="Express and Heal"
       icon={<Mail size={24} />}
       onBack={screen !== "intro" ? () => setScreen("intro") : () => navigate("/")}
-      actions={screen !== "history" && (
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => { fetchLetters(); setScreen("history"); }}
-          className="flex items-center gap-1.5 text-xs font-black text-primary border border-primary/20 hover:bg-primary/5 transition-all px-4 py-2.5 rounded-xl uppercase tracking-widest shadow-sm bg-white"
-        >
-          <Clock className="w-4 h-4 text-primary" />
-          History
-        </motion.button>
-      )}
     >
       <div className="w-full max-w-lg mx-auto relative z-10 font-sans">
         <FloatingHearts />
@@ -175,12 +168,12 @@ const Index = () => {
                 Your letter is private and saved only for you. It will never be sent.
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-4 pt-2">
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setScreen("writing")}
-                  className="w-full py-5 rounded-[2rem] font-black text-lg text-white shadow-xl shadow-primary/30 hover:shadow-primary/40 transition-all flex items-center justify-center gap-3 bg-primary cursor-pointer"
+                  className="w-full py-5 rounded-[2rem] font-black text-lg text-white shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all flex items-center justify-center gap-3 bg-gradient-to-r from-primary via-[#E05AAA] to-[#F48FB1] hover:brightness-110"
                 >
                   <Feather className="w-5 h-5" />
                   Begin Writing

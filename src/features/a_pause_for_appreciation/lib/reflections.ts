@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { sql } from '@/lib/db';
+import { dbRequest } from '@/lib/db';
 
 export interface ReflectionEntry {
   id: string;
@@ -11,15 +11,16 @@ export interface ReflectionEntry {
 
 export async function getReflections(): Promise<ReflectionEntry[]> {
   const userId = sessionStorage.getItem("user_id");
-  if (!userId || !sql) return [];
+  if (!userId) return [];
 
   try {
-    const rows = await sql`
-      SELECT id, entry_data, created_at 
-      FROM guided_series_logs 
-      WHERE user_id = ${userId} AND activity_name = 'a_pause_for_appreciation' 
-      ORDER BY created_at DESC
-    `;
+    const rows = await dbRequest(
+      `SELECT id, entry_data, created_at 
+       FROM guided_series_logs 
+       WHERE user_id = $1 AND activity_name = 'a_pause_for_appreciation' 
+       ORDER BY created_at DESC`,
+      [userId]
+    );
     if (!rows || !Array.isArray(rows)) return [];
     return rows.map(r => {
       const data = r.entry_data as any;
@@ -40,13 +41,13 @@ export async function getReflections(): Promise<ReflectionEntry[]> {
 export async function saveReflection(entry: ReflectionEntry): Promise<void> {
   const userId = sessionStorage.getItem("user_id");
   if (!userId) throw new Error("User not authenticated");
-  if (!sql) throw new Error("Database not connected");
 
   try {
-    await sql`
-      INSERT INTO guided_series_logs (user_id, concern, activity_name, entry_data)
-      VALUES (${userId}, 'appreciation_habit', 'a_pause_for_appreciation', ${JSON.stringify(entry)})
-    `;
+    await dbRequest(
+      `INSERT INTO guided_series_logs (user_id, concern, activity_name, entry_data)
+       VALUES ($1, 'appreciation_habit', 'a_pause_for_appreciation', $2)`,
+      [userId, JSON.stringify(entry)]
+    );
   } catch (err) {
     console.error('Failed to save reflection:', err);
     throw err;
@@ -55,13 +56,13 @@ export async function saveReflection(entry: ReflectionEntry): Promise<void> {
 
 export async function deleteReflection(id: string): Promise<void> {
   const userId = sessionStorage.getItem("user_id");
-  if (!userId || !sql) return;
+  if (!userId) return;
 
   try {
-    await sql`
-      DELETE FROM guided_series_logs 
-      WHERE id = ${id} AND user_id = ${userId}
-    `;
+    await dbRequest(
+      `DELETE FROM guided_series_logs WHERE id = $1 AND user_id = $2`,
+      [id, userId]
+    );
   } catch (err) {
     console.error('Failed to delete reflection:', err);
     throw err;
