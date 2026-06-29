@@ -153,7 +153,7 @@ function App() {
       if (!currentPath.includes("token=")) {
         localStorage.setItem("APP_REDIRECT_PATH", currentPath);
       }
-      const appRoot = window.location.origin + "/therapy/";
+      const appRoot = window.location.origin + "/coupletherapy/";
       window.location.replace(`https://web.mantracare.com/app/therapy?redirect_url=${encodeURIComponent(appRoot)}`);
     };
 

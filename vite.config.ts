@@ -5,10 +5,16 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import path from "path";
 
 export default defineConfig({
   vite: {
     base: "/coupletherapy/",
+    resolve: {
+      alias: {
+        "@neondatabase/serverless": path.resolve(__dirname, "./src/lib/neon-mock.ts"),
+      },
+    },
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
