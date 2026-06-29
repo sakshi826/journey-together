@@ -30,8 +30,22 @@ function localStorageQuery(query: string, params: any[]): any[] {
         });
 
         const storageKey = `db_table_${tableName}`;
-        const existingData = JSON.parse(localStorage.getItem(storageKey) || "[]");
-        existingData.push(row);
+        let existingData = JSON.parse(localStorage.getItem(storageKey) || "[]");
+        
+        let conflictIdx = -1;
+        if (tableName === "users") {
+          conflictIdx = existingData.findIndex((r: any) => String(r.id) === String(row.id));
+        } else if (tableName === "selfcare_entries" || tableName === "energy_logs") {
+          conflictIdx = existingData.findIndex((r: any) => String(r.user_id) === String(row.user_id) && String(r.date) === String(row.date));
+        }
+
+        if (conflictIdx !== -1) {
+          existingData[conflictIdx] = { ...existingData[conflictIdx], ...row, id: existingData[conflictIdx].id };
+          row.id = existingData[conflictIdx].id;
+        } else {
+          existingData.push(row);
+        }
+        
         localStorage.setItem(storageKey, JSON.stringify(existingData));
         return [row];
       }
